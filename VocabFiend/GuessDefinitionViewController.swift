@@ -9,12 +9,13 @@
 import UIKit
 
 class GuessDefinitionViewController: UIViewController {
-    @IBOutlet weak var definitionLabel: UILabel!
     @IBOutlet weak var wordOne: UIButton!
     @IBOutlet weak var wordTwo: UIButton!
     @IBOutlet weak var wordThree: UIButton!
+    @IBOutlet weak var definitionTextView: UITextView!
     
     var correctWord = ""
+    var submission : Submission?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,11 @@ class GuessDefinitionViewController: UIViewController {
                 alternates.append(potentialWord)
             }
         }
+        
+        definitionTextView.text = submission?.userInputDefinition
+        wordOne.setTitle(alternates[0].word, forState: UIControlState.Normal)
+        wordTwo.setTitle(alternates[1].word, forState: UIControlState.Normal)
+        wordThree.setTitle(submission?.correctWord?.word, forState: UIControlState.Normal)
     }
 
     override func didReceiveMemoryWarning() {

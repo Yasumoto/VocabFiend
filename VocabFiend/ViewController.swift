@@ -26,6 +26,16 @@ class ViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "guessDefinition" {
+            let guessingController = segue.destinationViewController as! GuessDefinitionViewController
+            let cell = sender as! UITableViewCell
+            let index = self.tableView.indexPathForCell(cell)?.row
+            let matchData = matches[index!].matchData
+            guessingController.submission = Submission(data: matchData)
+        }
+    }
+    
     // MARK: - Table View
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

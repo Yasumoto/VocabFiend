@@ -55,7 +55,7 @@ class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControll
         }
         let oneWeek = 60.0 * 60.0 * 24.0 * 7.0
 
-        let submission = Submission(correctWord: choice!, userInputDefinition: self.definition.text)
+        let submission = Submission(correctWord: choice!, userInputDefinition: self.guessedDefinition.text)
         match.endTurnWithNextParticipants([otherPlayer!, match.currentParticipant], turnTimeout: NSTimeInterval(oneWeek), matchData: submission.encodeData(), completionHandler: { (error) in println("We've finished ending the turn. NSError: \(error)"); viewController.dismissViewControllerAnimated(true, completion: nil) })
     }
     

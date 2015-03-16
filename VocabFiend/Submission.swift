@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Submission : NSObject {
+class Submission {
     var correctWord : Entry?
     var userInputDefinition : String?
     
@@ -18,13 +18,14 @@ class Submission : NSObject {
         archiver.encodeObject(userInputDefinition, forKey: "userInputDefinition")
         archiver.encodeObject(correctWord?.word, forKey: "correctWord")
         archiver.finishEncoding()
-        return data.base64EncodedDataWithOptions(nil)
+        return data as NSData
     }
     
     convenience init(data: NSData) {
         let keyedUnarchiver = NSKeyedUnarchiver(forReadingWithData: data)
-        let submission = keyedUnarchiver.decodeObject() as! Submission
-        self.init(correctWord: submission.correctWord!, userInputDefinition: submission.userInputDefinition!)
+        let attemptedUserDef = keyedUnarchiver.decodeObjectForKey("userInputDefinition") as! String
+        let word = keyedUnarchiver.decodeObjectForKey("correctWord") as! String
+        self.init(correctWord: Entry(word: word, partOfSpeech: "v", definition: "test"), userInputDefinition: attemptedUserDef)
     }
     
     init(correctWord newWord: Entry, userInputDefinition userDefinition: String) {
