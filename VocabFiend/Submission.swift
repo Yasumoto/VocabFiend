@@ -8,24 +8,27 @@
 
 import Foundation
 
-class Submission {
+class Submission : NSObject {
     var correctWord : Entry?
     var userInputDefinition : String?
-    var sneakyOptions : [Entry]?
     
     func encodeData() -> NSData {
-        return NSKeyedArchiver.archivedDataWithRootObject(self)
+        var data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
+        archiver.encodeObject(userInputDefinition, forKey: "userInputDefinition")
+        archiver.encodeObject(correctWord?.word, forKey: "correctWord")
+        archiver.finishEncoding()
+        return data.base64EncodedDataWithOptions(nil)
     }
     
     convenience init(data: NSData) {
-        let data = NSKeyedUnarchiver(forReadingWithData: data)
-        let submission = data.decodeObject() as! Submission
-        self.init(correctWord: submission.correctWord!, userInputDefinition: submission.userInputDefinition!, sneakyOptions: submission.sneakyOptions!)
+        let keyedUnarchiver = NSKeyedUnarchiver(forReadingWithData: data)
+        let submission = keyedUnarchiver.decodeObject() as! Submission
+        self.init(correctWord: submission.correctWord!, userInputDefinition: submission.userInputDefinition!)
     }
     
-    init(correctWord newWord: Entry, userInputDefinition userDefinition: String, sneakyOptions alternatives: [Entry]) {
+    init(correctWord newWord: Entry, userInputDefinition userDefinition: String) {
         correctWord = newWord
         userInputDefinition = userDefinition
-        sneakyOptions = alternatives
     }
 }

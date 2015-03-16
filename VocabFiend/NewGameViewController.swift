@@ -16,13 +16,14 @@ class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControll
     @IBOutlet weak var guessedDefinition: UITextField!
     
     var choice : Entry?
+    var randomIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
-        let sizeOfOptions = UInt32(wordList.count)
-        choice = wordList[Int(arc4random_uniform(sizeOfOptions))]
+        randomIndex = getRandomIndex()
+        choice = wordList[randomIndex]
         EntryTitle.text = choice?.word
         definition.text = choice?.definition
         partOfSpeech.text = choice?.partOfSpeech
@@ -44,10 +45,18 @@ class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControll
     
     func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController!, didFindMatch match: GKTurnBasedMatch!) {
         println("Found a match!")
-        println("GK View Controller: \(viewController)")
-        println("match: \(match)")
-        
-        //match.saveCurrentTurnWithMatchData(_:completionHandler:nil)
+        var otherPlayer : GKTurnBasedParticipant? = nil
+        for item in match.participants {
+            if let player = item as? GKTurnBasedParticipant {
+                if player != match.currentParticipant {
+                    otherPlayer = player
+                }
+            }
+        }
+        let oneWeek = 60.0 * 60.0 * 24.0 * 7.0
+
+        let submission = Submission(correctWord: choice!, userInputDefinition: self.definition.text)
+        match.endTurnWithNextParticipants([otherPlayer!, match.currentParticipant], turnTimeout: NSTimeInterval(oneWeek), matchData: submission.encodeData(), completionHandler: { (error) in println("We've finished ending the turn. NSError: \(error)"); viewController.dismissViewControllerAnimated(true, completion: nil) })
     }
     
     func turnBasedMatchmakerViewControllerWasCancelled(viewController: GKTurnBasedMatchmakerViewController!) {

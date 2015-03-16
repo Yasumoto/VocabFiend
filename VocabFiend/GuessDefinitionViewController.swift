@@ -10,14 +10,25 @@ import UIKit
 
 class GuessDefinitionViewController: UIViewController {
     @IBOutlet weak var definitionLabel: UILabel!
-
     @IBOutlet weak var wordOne: UIButton!
     @IBOutlet weak var wordTwo: UIButton!
     @IBOutlet weak var wordThree: UIButton!
+    
+    var correctWord = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        // Probably a good spot for some hip map or something
+        var alternates = [Entry]()
+        while alternates.count != 2 {
+            let newRandom = getRandomIndex()
+            let potentialWord = wordList[newRandom]
+            if potentialWord.word != correctWord {
+                alternates.append(potentialWord)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

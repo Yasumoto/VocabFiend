@@ -14,6 +14,12 @@ struct Entry {
     let definition : String
 }
 
+func getRandomIndex() -> Int {
+    let sizeOfOptions = UInt32(wordList.count)
+    let generatedIndex = Int(arc4random_uniform(sizeOfOptions))
+    return generatedIndex
+}
+
 let wordList = [
     Entry(word: "aberrant", partOfSpeech: "adj.", definition: "deviating from normal or correct."),
     Entry(word: "abscond", partOfSpeech: "v.", definition: "to leave secretly and hide, often to avoid the law."),
