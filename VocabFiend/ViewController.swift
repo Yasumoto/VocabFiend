@@ -11,9 +11,8 @@ import GameKit
 
 class ViewController: UITableViewController {
     
-    // You actually want GKTurnBasedaMatch
-    // loadMatchesWithCompletionHandler(_ completionHandler: (([AnyObject]!, NSError!) -> Void)!)
-    var submissions = [Submission]()
+    
+    var matches = [GKTurnBasedMatch]()
     var localPlayer : GKLocalPlayer?
     
     override func viewDidLoad() {
@@ -34,14 +33,15 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return submissions.count
+        return matches.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
         
-        let submission = submissions[indexPath.row]
-        cell.textLabel!.text = submission.correctWord?.word
+        let match = matches[indexPath.row]
+        let participant = match.participants[1] as! GKTurnBasedParticipant
+        cell.textLabel!.text = "\(match.status.rawValue) - \(participant.player.alias)"
         return cell
     }
     
@@ -52,7 +52,8 @@ class ViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            submissions.removeAtIndex(indexPath.row)
+            //submissions.removeAtIndex(indexPath.row)
+            // TODO(Yasumoto): Will need to do the 'cancel match' logic here
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -62,7 +63,15 @@ class ViewController: UITableViewController {
     func playerLoggedIn(localPlayer : GKLocalPlayer) {
         println("The player has been fully logged in!")
         println("Local Player: \(localPlayer)")
-        
+        GKTurnBasedMatch.loadMatchesWithCompletionHandler({ (objects : [AnyObject]!, error : NSError!) -> Void in
+            for object in objects {
+                if let match = object as? GKTurnBasedMatch {
+                    println("Match found: \(match)")
+                    self.matches.append(match)
+                }
+            }
+            self.tableView.reloadData()
+        })
     }
     
     func gameKitAuthenticationHandler(viewController : UIViewController!, error: NSError!) -> Void {
