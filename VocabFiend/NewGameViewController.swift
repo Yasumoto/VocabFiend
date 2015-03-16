@@ -46,7 +46,8 @@ class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControll
         println("Found a match!")
         println("GK View Controller: \(viewController)")
         println("match: \(match)")
-        // now wat.
+        
+        //match.saveCurrentTurnWithMatchData(_:completionHandler:nil)
     }
     
     func turnBasedMatchmakerViewControllerWasCancelled(viewController: GKTurnBasedMatchmakerViewController!) {

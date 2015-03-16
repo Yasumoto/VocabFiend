@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		407698DD1AB669630092E192 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407698DC1AB669630092E192 /* GameKit.framework */; };
+		407698DF1AB67CDD0092E192 /* GuessDefinitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407698DE1AB67CDD0092E192 /* GuessDefinitionViewController.swift */; };
 		40C6376B1AB658FA004CBF10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6376A1AB658FA004CBF10 /* AppDelegate.swift */; };
 		40C6376D1AB658FA004CBF10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6376C1AB658FA004CBF10 /* ViewController.swift */; };
 		40C637701AB658FA004CBF10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C6376E1AB658FA004CBF10 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		407698DC1AB669630092E192 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		407698DE1AB67CDD0092E192 /* GuessDefinitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessDefinitionViewController.swift; sourceTree = "<group>"; };
 		40C637651AB658FA004CBF10 /* VocabFiend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VocabFiend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C637691AB658FA004CBF10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40C6376A1AB658FA004CBF10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				40C6376A1AB658FA004CBF10 /* AppDelegate.swift */,
 				40C6376C1AB658FA004CBF10 /* ViewController.swift */,
 				40C6376E1AB658FA004CBF10 /* Main.storyboard */,
+				407698DE1AB67CDD0092E192 /* GuessDefinitionViewController.swift */,
 				40C637901AB65B3A004CBF10 /* NewGameViewController.swift */,
 				40C637941AB6602C004CBF10 /* CreateNewGame.swift */,
 				40C637711AB658FA004CBF10 /* Images.xcassets */,
@@ -234,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				407698DF1AB67CDD0092E192 /* GuessDefinitionViewController.swift in Sources */,
 				40C6376D1AB658FA004CBF10 /* ViewController.swift in Sources */,
 				40C637911AB65B3A004CBF10 /* NewGameViewController.swift in Sources */,
 				40C6376B1AB658FA004CBF10 /* AppDelegate.swift in Sources */,

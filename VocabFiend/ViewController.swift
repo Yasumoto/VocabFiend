@@ -10,6 +10,9 @@ import UIKit
 import GameKit
 
 class ViewController: UITableViewController {
+    
+    // You actually want GKTurnBasedaMatch
+    // loadMatchesWithCompletionHandler(_ completionHandler: (([AnyObject]!, NSError!) -> Void)!)
     var submissions = [Submission]()
     var localPlayer : GKLocalPlayer?
     
