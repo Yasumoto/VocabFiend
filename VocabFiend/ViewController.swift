@@ -31,8 +31,7 @@ class ViewController: UITableViewController {
             let guessingController = segue.destinationViewController as! GuessDefinitionViewController
             let cell = sender as! UITableViewCell
             let index = self.tableView.indexPathForCell(cell)?.row
-            let matchData = matches[index!].matchData
-            guessingController.submission = Submission(data: matchData)
+            guessingController.match = matches[index!]
         }
     }
     
@@ -51,7 +50,8 @@ class ViewController: UITableViewController {
         
         let match = matches[indexPath.row]
         let participant = match.participants[1] as! GKTurnBasedParticipant
-        cell.textLabel!.text = "\(match.status.rawValue) - \(participant.player.alias)"
+        cell.textLabel!.text = "\(match.creationDate.description) - \(participant.player.alias)"
+        cell.detailTextLabel!.text = "\(match.status.rawValue)"
         return cell
     }
     

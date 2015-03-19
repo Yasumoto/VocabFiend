@@ -7,39 +7,39 @@
 //
 
 import UIKit
+import GameKit
 
 class GuessDefinitionViewController: UIViewController {
-    @IBOutlet weak var wordOne: UIButton!
-    @IBOutlet weak var wordTwo: UIButton!
-    @IBOutlet weak var wordThree: UIButton!
-    @IBOutlet weak var definitionTextView: UITextView!
+
+    @IBOutlet weak var storyTextView: UITextView!
+    
+    @IBOutlet weak var wordOneLabel: UILabel!
+    @IBOutlet weak var wordTwoLabel: UILabel!
+    @IBOutlet weak var wordThreeLabel: UILabel!
+    
     
     var correctWord = ""
     var submission : Submission?
+    var match : GKTurnBasedMatch?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        // Probably a good spot for some hip map or something
-        var alternates = [Entry]()
-        while alternates.count != 2 {
-            let newRandom = getRandomIndex()
-            let potentialWord = wordList[newRandom]
-            if potentialWord.word != correctWord {
-                alternates.append(potentialWord)
-            }
-        }
-        
-        definitionTextView.text = submission?.userInputDefinition
-        wordOne.setTitle(alternates[0].word, forState: UIControlState.Normal)
-        wordTwo.setTitle(alternates[1].word, forState: UIControlState.Normal)
-        wordThree.setTitle(submission?.correctWord?.word, forState: UIControlState.Normal)
+        match!.loadMatchDataWithCompletionHandler(updateMatchData)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func updateMatchData(matchData: NSData!, error: NSError!) -> Void {
+        submission = Submission(data: matchData)
+    
+        storyTextView.text = submission?.story
+        wordOneLabel.text = submission?.firstWord?.word
+        wordTwoLabel.text = submission?.secondWord?.word
+        wordThreeLabel.text = submission?.thirdWord?.word
     }
     
 

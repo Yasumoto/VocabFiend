@@ -18,7 +18,6 @@
 		40C6378F1AB65A71004CBF10 /* Submission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6378D1AB65A71004CBF10 /* Submission.swift */; };
 		40C637911AB65B3A004CBF10 /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C637901AB65B3A004CBF10 /* NewGameViewController.swift */; };
 		40C637931AB65D99004CBF10 /* WordDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C637921AB65D99004CBF10 /* WordDictionary.swift */; };
-		40C637951AB6602C004CBF10 /* CreateNewGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C637941AB6602C004CBF10 /* CreateNewGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +46,6 @@
 		40C6378D1AB65A71004CBF10 /* Submission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Submission.swift; sourceTree = "<group>"; };
 		40C637901AB65B3A004CBF10 /* NewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
 		40C637921AB65D99004CBF10 /* WordDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDictionary.swift; sourceTree = "<group>"; };
-		40C637941AB6602C004CBF10 /* CreateNewGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +93,6 @@
 				40C6376E1AB658FA004CBF10 /* Main.storyboard */,
 				407698DE1AB67CDD0092E192 /* GuessDefinitionViewController.swift */,
 				40C637901AB65B3A004CBF10 /* NewGameViewController.swift */,
-				40C637941AB6602C004CBF10 /* CreateNewGame.swift */,
 				40C637711AB658FA004CBF10 /* Images.xcassets */,
 				40C637731AB658FA004CBF10 /* LaunchScreen.xib */,
 				40C6378D1AB65A71004CBF10 /* Submission.swift */,
@@ -242,7 +239,6 @@
 				40C637911AB65B3A004CBF10 /* NewGameViewController.swift in Sources */,
 				40C6376B1AB658FA004CBF10 /* AppDelegate.swift in Sources */,
 				40C6378F1AB65A71004CBF10 /* Submission.swift in Sources */,
-				40C637951AB6602C004CBF10 /* CreateNewGame.swift in Sources */,
 				40C637931AB65D99004CBF10 /* WordDictionary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

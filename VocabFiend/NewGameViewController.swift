@@ -13,23 +13,48 @@ class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControll
     @IBOutlet weak var EntryTitle: UILabel!
     @IBOutlet weak var definition: UITextView!
     @IBOutlet weak var partOfSpeech: UILabel!
-    @IBOutlet weak var guessedDefinition: UITextField!
     
-    var choice : Entry?
-    var randomIndex = 0
+    @IBOutlet weak var secondEntryLabel: UILabel!
+    @IBOutlet weak var secondEntrypartOfSpeech: UILabel!
+    @IBOutlet weak var secondEntryDefinition: UITextView!
+    
+    @IBOutlet weak var thirdEntryLabel: UILabel!
+    @IBOutlet weak var thirdEntryPartOfSpeech: UILabel!
+    @IBOutlet weak var thirdEntryDefinition: UITextView!
+    
+    
+    @IBOutlet weak var storyTextView: UITextView!
+    
+    var firstWord : Entry?
+    var secondWord : Entry?
+    var thirdWord : Entry?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
+        var randomIndex = 0
+
         randomIndex = getRandomIndex()
-        choice = wordList[randomIndex]
-        EntryTitle.text = choice?.word
-        definition.text = choice?.definition
-        partOfSpeech.text = choice?.partOfSpeech
+        firstWord = wordList[randomIndex]
+        EntryTitle.text = firstWord?.word
+        definition.text = firstWord?.definition
+        partOfSpeech.text = firstWord?.partOfSpeech
+        
+        randomIndex = getRandomIndex()
+        secondWord = wordList[randomIndex]
+        secondEntryLabel.text = secondWord?.word
+        secondEntryDefinition.text = secondWord?.definition
+        secondEntrypartOfSpeech.text = secondWord?.partOfSpeech
+
+        randomIndex = getRandomIndex()
+        thirdWord = wordList[randomIndex]
+        thirdEntryLabel.text = thirdWord?.word
+        thirdEntryDefinition.text = thirdWord?.definition
+        thirdEntryPartOfSpeech.text = thirdWord?.partOfSpeech
     }
 
-    @IBAction func createdDefinition(sender: UITextField) {
+    @IBAction func createdDefinition(sender: UIButton) {
         var request : GKMatchRequest = GKMatchRequest()
         request.minPlayers = 2
         request.maxPlayers = 2
@@ -37,7 +62,7 @@ class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControll
         var mmvc : GKTurnBasedMatchmakerViewController = GKTurnBasedMatchmakerViewController.init(matchRequest: request);
         mmvc.turnBasedMatchmakerDelegate = self;
         
-        println("Made a guess! \(sender.text)")
+        println("Made a story! \(storyTextView.text)")
         self.presentViewController(mmvc, animated:true, completion:nil)
     }
     
@@ -55,7 +80,7 @@ class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControll
         }
         let oneWeek = 60.0 * 60.0 * 24.0 * 7.0
 
-        let submission = Submission(correctWord: choice!, userInputDefinition: self.guessedDefinition.text)
+        let submission = Submission(firstWord: firstWord!, secondWord: secondWord!, thirdWord: thirdWord!, story: self.storyTextView.text)
         match.endTurnWithNextParticipants([otherPlayer!, match.currentParticipant], turnTimeout: NSTimeInterval(oneWeek), matchData: submission.encodeData(), completionHandler: { (error) in println("We've finished ending the turn. NSError: \(error)"); viewController.dismissViewControllerAnimated(true, completion: nil) })
     }
     
