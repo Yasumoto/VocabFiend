@@ -12,15 +12,23 @@ import GameKit
 class ViewController: UITableViewController {
     
     
+    @IBOutlet weak var refreshButton: UIButton!
+    @IBOutlet weak var newGameButton: UIButton!
     var matches = [GKTurnBasedMatch]()
     var localPlayer : GKLocalPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.refreshButton.enabled = false
+        self.newGameButton.enabled = false
         // Do any additional setup after loading the view, typically from a nib.
         authenticateLocalPlayer()
     }
 
+    @IBAction func refreshMatches(sender: UIButton) {
+        loadMatches()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -49,9 +57,20 @@ class ViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
         
         let match = matches[indexPath.row]
-        let participant = match.participants[1] as! GKTurnBasedParticipant
-        cell.textLabel!.text = "\(match.creationDate.description) - \(participant.player.alias)"
-        cell.detailTextLabel!.text = "\(match.status.rawValue)"
+        let participant = match.participants[0] as! GKTurnBasedParticipant
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        
+        cell.textLabel!.text = "\(participant.player.alias)"
+        if participant.player.playerID == localPlayer?.playerID {
+            cell.textLabel!.textColor = UIColor.grayColor()
+        }
+        else {
+            cell.textLabel!.textColor = UIColor.greenColor()
+
+        }
+        cell.detailTextLabel!.text = "\(dateFormatter.stringFromDate(match.creationDate))"
         return cell
     }
     
@@ -60,20 +79,33 @@ class ViewController: UITableViewController {
         return true
     }
     
+    func matchWasDeleted(error: NSError!) -> Void {
+        println("match deleted with error: \(error)")
+    
+    }
+    
+    func deleteMatch(tableView: UITableView, indexPath: NSIndexPath) {
+        let match = matches[indexPath.row]
+        match.removeWithCompletionHandler(matchWasDeleted)
+        matches.removeAtIndex(indexPath.row)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+    }
+    
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             //submissions.removeAtIndex(indexPath.row)
             // TODO(Yasumoto): Will need to do the 'cancel match' logic here
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            deleteMatch(tableView, indexPath: indexPath)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
     
-    func playerLoggedIn(localPlayer : GKLocalPlayer) {
-        println("The player has been fully logged in!")
-        println("Local Player: \(localPlayer)")
+    func loadMatches() {
+        self.refreshButton.enabled = false
+
         GKTurnBasedMatch.loadMatchesWithCompletionHandler({ (objects : [AnyObject]!, error : NSError!) -> Void in
+            self.matches = [GKTurnBasedMatch]()
             for object in objects {
                 if let match = object as? GKTurnBasedMatch {
                     println("Match found: \(match)")
@@ -81,7 +113,15 @@ class ViewController: UITableViewController {
                 }
             }
             self.tableView.reloadData()
+            self.refreshButton.enabled = true
         })
+    }
+    
+    func playerLoggedIn(localPlayer : GKLocalPlayer) {
+        println("The player has been fully logged in!")
+        println("Local Player: \(localPlayer)")
+        self.newGameButton.enabled = true
+        loadMatches()
     }
     
     func gameKitAuthenticationHandler(viewController : UIViewController!, error: NSError!) -> Void {

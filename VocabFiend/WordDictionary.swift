@@ -8,10 +8,30 @@
 
 import Foundation
 
-struct Entry {
-    let word : String
-    let partOfSpeech : String
-    let definition : String
+class Entry: NSObject, NSCoding {
+    var word : String?
+    var partOfSpeech : String?
+    var definition : String?
+    
+    func encodeWithCoder(aCoder: NSCoder){
+        aCoder.encodeObject(word, forKey: "word")
+        aCoder.encodeObject(partOfSpeech, forKey: "partOfSpeech")
+        aCoder.encodeObject(definition, forKey: "definition")
+    }
+    
+    required convenience init(coder aDecoder: NSCoder) {
+        self.init()
+        self.word = aDecoder.decodeObjectForKey("word") as? String
+        self.partOfSpeech = aDecoder.decodeObjectForKey("partOfSpeech") as? String
+        self.definition = aDecoder.decodeObjectForKey("definition") as? String
+    }
+    
+    convenience init(word: String, partOfSpeech: String, definition: String) {
+        self.init()
+        self.word = word
+        self.partOfSpeech = partOfSpeech
+        self.definition = definition
+    }
 }
 
 func getRandomIndex() -> Int {

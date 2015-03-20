@@ -14,8 +14,11 @@ class GuessDefinitionViewController: UIViewController {
     @IBOutlet weak var storyTextView: UITextView!
     
     @IBOutlet weak var wordOneLabel: UILabel!
+    @IBOutlet weak var wordOneDefinitionTextView: UITextView!
     @IBOutlet weak var wordTwoLabel: UILabel!
+    @IBOutlet weak var wordTwoDefinitionTextView: UITextView!
     @IBOutlet weak var wordThreeLabel: UILabel!
+    @IBOutlet weak var wordThreeDefinitionTextView: UITextView!
     
     
     var correctWord = ""
@@ -34,12 +37,18 @@ class GuessDefinitionViewController: UIViewController {
     }
     
     func updateMatchData(matchData: NSData!, error: NSError!) -> Void {
-        submission = Submission(data: matchData)
+        submission = NSKeyedUnarchiver.unarchiveObjectWithData(matchData) as? Submission
     
         storyTextView.text = submission?.story
+        
         wordOneLabel.text = submission?.firstWord?.word
+        wordOneDefinitionTextView.text = submission?.firstWord?.definition
+        
         wordTwoLabel.text = submission?.secondWord?.word
+        wordTwoDefinitionTextView.text = submission?.secondWord?.definition
+        
         wordThreeLabel.text = submission?.thirdWord?.word
+        wordThreeDefinitionTextView.text = submission?.thirdWord?.definition
     }
     
 
