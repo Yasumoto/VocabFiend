@@ -9,7 +9,7 @@
 import UIKit
 import GameKit
 
-class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControllerDelegate {
+class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControllerDelegate, UIScrollViewDelegate, UITextViewDelegate {
     @IBOutlet weak var EntryTitle: UILabel!
     @IBOutlet weak var definition: UITextView!
     @IBOutlet weak var partOfSpeech: UILabel!
@@ -22,6 +22,9 @@ class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControll
     @IBOutlet weak var thirdEntryPartOfSpeech: UILabel!
     @IBOutlet weak var thirdEntryDefinition: UITextView!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var sendButton: UIButton!
     
     @IBOutlet weak var storyTextView: UITextView!
     
@@ -31,8 +34,12 @@ class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControll
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerForKeyboardNotifications()
+        scrollView.delegate = self
+        scrollView.scrollEnabled = true
+        storyTextView.delegate = self
+        scrollView.contentSize = CGSizeMake(view.frame.width, view.frame.height)
         
-        // Do any additional setup after loading the view, typically from a nib.
         var randomIndex = 0
 
         randomIndex = getRandomIndex()
@@ -86,7 +93,7 @@ class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControll
     }
     
     func turnBasedMatchmakerViewControllerWasCancelled(viewController: GKTurnBasedMatchmakerViewController!) {
-        println("GK controller was cancelled. \(viewController)")
+        println("GK controller was cancelled.")
         viewController.dismissViewControllerAnimated(true, completion: nil)
         
     }
@@ -98,9 +105,52 @@ class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControll
     }
     
     func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController!, playerQuitForMatch match: GKTurnBasedMatch!) {
-        println("Welp. we had someone quit match: \(match)")
+        println("Welp. we had someone quit match)")
         viewController.dismissViewControllerAnimated(true, completion: nil)
         
+    }
+    
+    // MARK: - Keyboard handling
+    
+    // Call this method somewhere in your view controller setup code.
+    func registerForKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name:UIKeyboardDidShowNotification, object:nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillBeHidden:", name: UIKeyboardWillHideNotification, object:nil)
+    }
+    
+    // Called when the UIKeyboardDidShowNotification is sent.
+    func keyboardWasShown(aNotification : NSNotification) {
+        let info = aNotification.userInfo!
+        let kbValue = info[UIKeyboardFrameBeginUserInfoKey] as NSValue
+        let kbSize = kbValue.CGRectValue().size
+    
+        var bkgndRect = sendButton.superview!.frame;
+        bkgndRect.size.height += kbSize.height;
+        sendButton.superview!.frame = bkgndRect
+        scrollView.setContentOffset(CGPointMake(0.0, sendButton.frame.origin.y-kbSize.height), animated:true)
+    }
+    
+    // Called when the UIKeyboardWillHideNotification is sent
+    func keyboardWillBeHidden(aNotification: NSNotification) {
+        let contentInsets = UIEdgeInsetsZero;
+        scrollView.contentInset = contentInsets;
+        scrollView.scrollIndicatorInsets = contentInsets;
+    }
+    
+    @IBAction func doneButtonPressed(sender: UIButton) {
+        textViewShouldEndEditing(storyTextView)
+    }
+    // MARK: - Text View Delegate
+    
+    func textViewShouldEndEditing(textView: UITextView) -> Bool {
+        storyTextView.resignFirstResponder()
+        return true
+    }
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        if textView.text == "Enter your wonderful story here!" {
+            textView.text = ""
+        }
     }
     
 }

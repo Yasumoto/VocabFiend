@@ -9,7 +9,7 @@
 import UIKit
 import GameKit
 
-class ViewController: UITableViewController {
+class ViewController: UITableViewController, UITextViewDelegate {
     
     
     @IBOutlet weak var refreshButton: UIButton!
@@ -21,8 +21,13 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         self.refreshButton.enabled = false
         self.newGameButton.enabled = false
+        self.tableView.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
         authenticateLocalPlayer()
+    }
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        textView.text = ""
     }
 
     @IBAction func refreshMatches(sender: UIButton) {
@@ -36,8 +41,8 @@ class ViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "guessDefinition" {
-            let guessingController = segue.destinationViewController as! GuessDefinitionViewController
-            let cell = sender as! UITableViewCell
+            let guessingController = segue.destinationViewController as GuessDefinitionViewController
+            let cell = sender as UITableViewCell
             let index = self.tableView.indexPathForCell(cell)?.row
             guessingController.match = matches[index!]
         }
@@ -54,10 +59,10 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         
         let match = matches[indexPath.row]
-        let participant = match.participants[0] as! GKTurnBasedParticipant
+        let participant = match.participants[0] as GKTurnBasedParticipant
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
@@ -108,7 +113,6 @@ class ViewController: UITableViewController {
             self.matches = [GKTurnBasedMatch]()
             for object in objects {
                 if let match = object as? GKTurnBasedMatch {
-                    println("Match found: \(match)")
                     self.matches.append(match)
                 }
             }
@@ -118,8 +122,7 @@ class ViewController: UITableViewController {
     }
     
     func playerLoggedIn(localPlayer : GKLocalPlayer) {
-        println("The player has been fully logged in!")
-        println("Local Player: \(localPlayer)")
+        println("Local Player logged in: \(localPlayer)")
         self.newGameButton.enabled = true
         loadMatches()
     }
