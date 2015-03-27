@@ -9,7 +9,13 @@
 import UIKit
 import GameKit
 
-class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControllerDelegate, UITextViewDelegate {
+enum SubmissionState {
+    case New;
+    case AddSubmission;
+    case View;
+}
+
+class CreateSubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewControllerDelegate, UITextViewDelegate {
     @IBOutlet weak var firstEntry: UIButton!
     @IBOutlet weak var secondEntry: UIButton!
     @IBOutlet weak var thirdEntry: UIButton!
@@ -20,22 +26,26 @@ class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControll
     var secondWord : Entry?
     var thirdWord : Entry?
     
+    var submissionType : SubmissionState?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         storyTextView.delegate = self
         
-        var randomIndex = 0
-
-        randomIndex = getRandomIndex()
-        firstWord = wordList[randomIndex]
+        if submissionType! != SubmissionState.View {
+            var randomIndex = 0
+            
+            randomIndex = getRandomIndex()
+            firstWord = wordList[randomIndex]
+            
+            randomIndex = getRandomIndex()
+            secondWord = wordList[randomIndex]
+            
+            randomIndex = getRandomIndex()
+            thirdWord = wordList[randomIndex]
+        }
         firstEntry.setTitle(firstWord!.word, forState: UIControlState.Normal)
-        
-        randomIndex = getRandomIndex()
-        secondWord = wordList[randomIndex]
         secondEntry.setTitle(secondWord!.word, forState: UIControlState.Normal)
-
-        randomIndex = getRandomIndex()
-        thirdWord = wordList[randomIndex]
         thirdEntry.setTitle(thirdWord!.word, forState:UIControlState.Normal)
     }
     

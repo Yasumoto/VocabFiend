@@ -34,7 +34,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="DeN-RM-jQn" kind="show" id="jbI-4A-iZs"/>
+                                    <segue destination="DeN-RM-jQn" kind="show" identifier="viewMatch" id="jbI-4A-iZs"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -47,7 +47,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="g76-5O-wud"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2TC-4d-9ES">
                             <connections>
-                                <segue destination="Iv3-Ge-hdN" kind="show" id="veV-se-luS"/>
+                                <segue destination="Iv3-Ge-hdN" kind="show" identifier="newMatch" id="rxp-ME-nbk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -60,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="155" y="730"/>
         </scene>
-        <!--New Story-->
+        <!--Story Entry-->
         <scene sceneID="DFX-lq-BZt">
             <objects>
-                <viewController id="Iv3-Ge-hdN" customClass="NewGameViewController" customModule="VocabFiend" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Iv3-Ge-hdN" customClass="CreateSubmissionViewController" customModule="VocabFiend" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7GO-rm-T2t"/>
                         <viewControllerLayoutGuide type="bottom" id="GPI-sO-beA"/>
@@ -128,7 +128,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="New Story" id="jAa-ke-7rg">
+                    <navigationItem key="navigationItem" title="Story Entry" id="jAa-ke-7rg">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="wlS-j6-6mj">
                             <connections>
                                 <action selector="createdDefinition:" destination="Iv3-Ge-hdN" id="rOH-uR-cGc"/>
@@ -204,28 +204,10 @@
             </objects>
             <point key="canvasLocation" x="1676" y="730"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Lye-rg-VwI">
-            <objects>
-                <viewController id="LWJ-Ik-wQv" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="se3-p0-BJj"/>
-                        <viewControllerLayoutGuide type="bottom" id="XVY-im-MQs"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qCN-s4-0qc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dCr-2E-7m3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="919" y="1443"/>
-        </scene>
-        <!--Title-->
+        <!--Story Progress-->
         <scene sceneID="oZl-CA-dOv">
             <objects>
-                <tableViewController id="DeN-RM-jQn" sceneMemberID="viewController">
+                <tableViewController id="DeN-RM-jQn" customClass="FullStoryTableViewController" customModule="VocabFiend" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="RoI-sr-6aa">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -237,9 +219,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="y1X-lt-57y" kind="popoverPresentation" popoverAnchorView="rRI-0N-Zkz" id="egd-NU-qKp">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="Iv3-Ge-hdN" kind="show" identifier="viewEntry" id="Sny-CN-exX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -248,10 +228,10 @@
                             <outlet property="delegate" destination="DeN-RM-jQn" id="IRT-6H-Dbs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="YRL-Ti-CoY">
+                    <navigationItem key="navigationItem" title="Story Progress" id="YRL-Ti-CoY">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="htw-7P-gAj">
                             <connections>
-                                <segue destination="LWJ-Ik-wQv" kind="show" id="ReG-RE-bHt"/>
+                                <segue destination="Iv3-Ge-hdN" kind="show" identifier="addEntry" id="rRl-NA-TC5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -259,24 +239,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vgN-B7-U6w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="173" y="1443"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="7qG-3G-ABf">
-            <objects>
-                <viewController id="y1X-lt-57y" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="YKg-4N-QUi"/>
-                        <viewControllerLayoutGuide type="bottom" id="UFs-Jp-Nua"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZMl-xz-khT">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4wi-Qv-4qP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="769" y="2194"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oYb-hr-p3D">
@@ -296,6 +258,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="rxp-ME-nbk"/>
         <segue reference="WtZ-Nh-NOs"/>
     </inferredMetricsTieBreakers>
 </document>

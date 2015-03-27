@@ -9,12 +9,14 @@
 import UIKit
 import GameKit
 
+
 class ViewController: UITableViewController, UITextViewDelegate {
     
     
     @IBOutlet weak var refreshGamesButton: UIBarButtonItem!
     @IBOutlet weak var addGameButton: UIBarButtonItem!
     var matches = [GKTurnBasedMatch]()
+    
     var localPlayer : GKLocalPlayer?
     
     override func viewDidLoad() {
@@ -41,11 +43,14 @@ class ViewController: UITableViewController, UITextViewDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "guessDefinition" {
-            let guessingController = segue.destinationViewController as StoryEntryViewController
+        if segue.identifier == "viewMatch" {
+            let guessingController = segue.destinationViewController as FullStoryTableViewController
             let cell = sender as UITableViewCell
             let index = self.tableView.indexPathForCell(cell)?.row
             guessingController.match = matches[index!]
+        } else if segue.identifier == "newMatch" {
+            let submissionController = segue.destinationViewController as CreateSubmissionViewController
+            submissionController.submissionType = SubmissionState.AddSubmission
         }
     }
     
@@ -139,7 +144,7 @@ class ViewController: UITableViewController, UITextViewDelegate {
             playerLoggedIn(localPlayer!)
         } else {
             println("Player not logged in! \(error)")
-            //disableGameCenter()
+            //disableGameCenter() - the game starts off disabled already. Eventually we'll want to allow read-only mode, which means this will happen here
         }
     }
     
