@@ -20,7 +20,7 @@ class ViewController: UITableViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.refreshGamesButton.enabled = false
-        self.addGameButton.enabled = false
+        //self.addGameButton.enabled = false
         self.tableView.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
         authenticateLocalPlayer()

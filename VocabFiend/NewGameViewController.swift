@@ -11,18 +11,8 @@ import GameKit
 
 class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControllerDelegate, UITextViewDelegate {
     @IBOutlet weak var firstEntry: UIButton!
-    @IBOutlet weak var firstEntryPartOfSpeech: UILabel!
-    @IBOutlet weak var firstEntryDefinition: UITextView!
-    
     @IBOutlet weak var secondEntry: UIButton!
-    @IBOutlet weak var secondEntrypartOfSpeech: UILabel!
-    @IBOutlet weak var secondEntryDefinition: UITextView!
-    
     @IBOutlet weak var thirdEntry: UIButton!
-    @IBOutlet weak var thirdEntryPartOfSpeech: UILabel!
-    @IBOutlet weak var thirdEntryDefinition: UITextView!
-    
-    @IBOutlet weak var sendButton: UIButton!
     
     @IBOutlet weak var storyTextView: UITextView!
     
@@ -39,23 +29,17 @@ class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControll
         randomIndex = getRandomIndex()
         firstWord = wordList[randomIndex]
         firstEntry.titleLabel!.text = firstWord?.word
-        firstEntryDefinition.text = firstWord?.definition
-        firstEntryPartOfSpeech.text = firstWord?.partOfSpeech
         
         randomIndex = getRandomIndex()
         secondWord = wordList[randomIndex]
         secondEntry.titleLabel!.text = secondWord?.word
-        secondEntryDefinition.text = secondWord?.definition
-        secondEntrypartOfSpeech.text = secondWord?.partOfSpeech
 
         randomIndex = getRandomIndex()
         thirdWord = wordList[randomIndex]
         thirdEntry.titleLabel!.text = thirdWord?.word
-        thirdEntryDefinition.text = thirdWord?.definition
-        thirdEntryPartOfSpeech.text = thirdWord?.partOfSpeech
     }
 
-    @IBAction func createdDefinition(sender: UIButton) {
+    @IBAction func createdDefinition(sender: UIBarButtonItem) {
         var request : GKMatchRequest = GKMatchRequest()
         request.minPlayers = 2
         request.maxPlayers = 2
