@@ -12,15 +12,15 @@ import GameKit
 class ViewController: UITableViewController, UITextViewDelegate {
     
     
-    @IBOutlet weak var refreshButton: UIButton!
-    @IBOutlet weak var newGameButton: UIButton!
+    @IBOutlet weak var refreshGamesButton: UIBarButtonItem!
+    @IBOutlet weak var addGameButton: UIBarButtonItem!
     var matches = [GKTurnBasedMatch]()
     var localPlayer : GKLocalPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.refreshButton.enabled = false
-        self.newGameButton.enabled = false
+        self.refreshGamesButton.enabled = false
+        self.addGameButton.enabled = false
         self.tableView.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
         authenticateLocalPlayer()
@@ -107,7 +107,7 @@ class ViewController: UITableViewController, UITextViewDelegate {
     }
     
     func loadMatches() {
-        self.refreshButton.enabled = false
+        self.refreshGamesButton.enabled = false
 
         GKTurnBasedMatch.loadMatchesWithCompletionHandler({ (objects : [AnyObject]!, error : NSError!) -> Void in
             self.matches = [GKTurnBasedMatch]()
@@ -117,13 +117,13 @@ class ViewController: UITableViewController, UITextViewDelegate {
                 }
             }
             self.tableView.reloadData()
-            self.refreshButton.enabled = true
+            self.refreshGamesButton.enabled = true
         })
     }
     
     func playerLoggedIn(localPlayer : GKLocalPlayer) {
         println("Local Player logged in: \(localPlayer)")
-        self.newGameButton.enabled = true
+        self.addGameButton.enabled = true
         loadMatches()
     }
     

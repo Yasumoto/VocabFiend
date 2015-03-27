@@ -9,20 +9,18 @@
 import UIKit
 import GameKit
 
-class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControllerDelegate, UIScrollViewDelegate, UITextViewDelegate {
-    @IBOutlet weak var EntryTitle: UILabel!
-    @IBOutlet weak var definition: UITextView!
-    @IBOutlet weak var partOfSpeech: UILabel!
+class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControllerDelegate, UITextViewDelegate {
+    @IBOutlet weak var firstEntry: UIButton!
+    @IBOutlet weak var firstEntryPartOfSpeech: UILabel!
+    @IBOutlet weak var firstEntryDefinition: UITextView!
     
-    @IBOutlet weak var secondEntryLabel: UILabel!
+    @IBOutlet weak var secondEntry: UIButton!
     @IBOutlet weak var secondEntrypartOfSpeech: UILabel!
     @IBOutlet weak var secondEntryDefinition: UITextView!
     
-    @IBOutlet weak var thirdEntryLabel: UILabel!
+    @IBOutlet weak var thirdEntry: UIButton!
     @IBOutlet weak var thirdEntryPartOfSpeech: UILabel!
     @IBOutlet weak var thirdEntryDefinition: UITextView!
-    
-    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var sendButton: UIButton!
     
@@ -34,29 +32,25 @@ class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControll
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerForKeyboardNotifications()
-        scrollView.delegate = self
-        scrollView.scrollEnabled = true
         storyTextView.delegate = self
-        scrollView.contentSize = CGSizeMake(view.frame.width, view.frame.height)
         
         var randomIndex = 0
 
         randomIndex = getRandomIndex()
         firstWord = wordList[randomIndex]
-        EntryTitle.text = firstWord?.word
-        definition.text = firstWord?.definition
-        partOfSpeech.text = firstWord?.partOfSpeech
+        firstEntry.titleLabel!.text = firstWord?.word
+        firstEntryDefinition.text = firstWord?.definition
+        firstEntryPartOfSpeech.text = firstWord?.partOfSpeech
         
         randomIndex = getRandomIndex()
         secondWord = wordList[randomIndex]
-        secondEntryLabel.text = secondWord?.word
+        secondEntry.titleLabel!.text = secondWord?.word
         secondEntryDefinition.text = secondWord?.definition
         secondEntrypartOfSpeech.text = secondWord?.partOfSpeech
 
         randomIndex = getRandomIndex()
         thirdWord = wordList[randomIndex]
-        thirdEntryLabel.text = thirdWord?.word
+        thirdEntry.titleLabel!.text = thirdWord?.word
         thirdEntryDefinition.text = thirdWord?.definition
         thirdEntryPartOfSpeech.text = thirdWord?.partOfSpeech
     }
@@ -110,36 +104,6 @@ class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControll
         
     }
     
-    // MARK: - Keyboard handling
-    
-    // Call this method somewhere in your view controller setup code.
-    func registerForKeyboardNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name:UIKeyboardDidShowNotification, object:nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillBeHidden:", name: UIKeyboardWillHideNotification, object:nil)
-    }
-    
-    // Called when the UIKeyboardDidShowNotification is sent.
-    func keyboardWasShown(aNotification : NSNotification) {
-        let info = aNotification.userInfo!
-        let kbValue = info[UIKeyboardFrameBeginUserInfoKey] as NSValue
-        let kbSize = kbValue.CGRectValue().size
-    
-        var bkgndRect = sendButton.superview!.frame;
-        bkgndRect.size.height += kbSize.height;
-        sendButton.superview!.frame = bkgndRect
-        scrollView.setContentOffset(CGPointMake(0.0, sendButton.frame.origin.y-kbSize.height), animated:true)
-    }
-    
-    // Called when the UIKeyboardWillHideNotification is sent
-    func keyboardWillBeHidden(aNotification: NSNotification) {
-        let contentInsets = UIEdgeInsetsZero;
-        scrollView.contentInset = contentInsets;
-        scrollView.scrollIndicatorInsets = contentInsets;
-    }
-    
-    @IBAction func doneButtonPressed(sender: UIButton) {
-        textViewShouldEndEditing(storyTextView)
-    }
     // MARK: - Text View Delegate
     
     func textViewShouldEndEditing(textView: UITextView) -> Bool {
