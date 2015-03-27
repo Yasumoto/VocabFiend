@@ -20,6 +20,7 @@ class ViewController: UITableViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.refreshGamesButton.enabled = false
+        //TODO(Yasumoto): Uncomment this when back on the network
         //self.addGameButton.enabled = false
         self.tableView.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
@@ -41,7 +42,7 @@ class ViewController: UITableViewController, UITextViewDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "guessDefinition" {
-            let guessingController = segue.destinationViewController as GuessDefinitionViewController
+            let guessingController = segue.destinationViewController as StoryEntryViewController
             let cell = sender as UITableViewCell
             let index = self.tableView.indexPathForCell(cell)?.row
             guessingController.match = matches[index!]

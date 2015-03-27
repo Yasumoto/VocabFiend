@@ -28,15 +28,27 @@ class NewGameViewController: UIViewController, GKTurnBasedMatchmakerViewControll
 
         randomIndex = getRandomIndex()
         firstWord = wordList[randomIndex]
-        firstEntry.titleLabel!.text = firstWord?.word
+        firstEntry.setTitle(firstWord!.word, forState: UIControlState.Normal)
         
         randomIndex = getRandomIndex()
         secondWord = wordList[randomIndex]
-        secondEntry.titleLabel!.text = secondWord?.word
+        secondEntry.setTitle(secondWord!.word, forState: UIControlState.Normal)
 
         randomIndex = getRandomIndex()
         thirdWord = wordList[randomIndex]
-        thirdEntry.titleLabel!.text = thirdWord?.word
+        thirdEntry.setTitle(thirdWord!.word, forState:UIControlState.Normal)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let entryDisplay = segue.destinationViewController as EntryDisplayPopoverController
+        let word = sender as UIButton
+        if segue.identifier == "wordOne" {
+            entryDisplay.entry = firstWord
+        } else if segue.identifier == "wordTwo" {
+            entryDisplay.entry = secondWord
+        } else {
+            entryDisplay.entry = thirdWord
+        }
     }
 
     @IBAction func createdDefinition(sender: UIBarButtonItem) {

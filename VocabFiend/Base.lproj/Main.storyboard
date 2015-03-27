@@ -33,6 +33,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="DeN-RM-jQn" kind="show" id="jbI-4A-iZs"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -74,6 +77,9 @@
                                 <state key="normal" title="Word Three">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="2CY-b1-xeP" kind="show" identifier="wordThree" id="WtZ-Nh-NOs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bpy-ay-G2L">
                                 <rect key="frame" x="16" y="72" width="69" height="30"/>
@@ -81,9 +87,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="2CY-b1-xeP" kind="popoverPresentation" popoverAnchorView="Bpy-ay-G2L" id="3s2-mf-uRH">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="2CY-b1-xeP" kind="show" id="s2Z-12-pMm"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter your wonderful story here!" translatesAutoresizingMaskIntoConstraints="NO" id="b8a-JR-gRH">
@@ -100,6 +104,9 @@
                                 <state key="normal" title="Word Two">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="2CY-b1-xeP" kind="show" identifier="wordTwo" id="Tn7-8I-aYa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -140,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="990" y="730"/>
         </scene>
-        <!--View Controller-->
+        <!--Definition-->
         <scene sceneID="bgT-5b-8Jf">
             <objects>
-                <viewController id="2CY-b1-xeP" sceneMemberID="viewController">
+                <viewController id="2CY-b1-xeP" customClass="EntryDisplayPopoverController" customModule="VocabFiend" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WhZ-xG-i2V"/>
                         <viewControllerLayoutGuide type="bottom" id="TCn-P2-qOU"/>
@@ -152,20 +159,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Full Word" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSW-Ni-fda">
-                                <rect key="frame" x="264" y="20" width="73" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Word" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSW-Ni-fda">
+                                <rect key="frame" x="16" y="72" width="568" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Part of Speech" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGw-kI-kyw">
-                                <rect key="frame" x="243" y="49" width="115" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Part of Speech" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGw-kI-kyw">
+                                <rect key="frame" x="16" y="100" width="568" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8p-cK-ZXe">
-                                <rect key="frame" x="180" y="78" width="240" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8p-cK-ZXe">
+                                <rect key="frame" x="16" y="129" width="568" height="419"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -173,11 +180,29 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="n8p-cK-ZXe" firstAttribute="top" secondItem="aGw-kI-kyw" secondAttribute="bottom" constant="8" id="5Jz-Ji-J7t"/>
+                            <constraint firstItem="DSW-Ni-fda" firstAttribute="leading" secondItem="cPq-yV-g1u" secondAttribute="leadingMargin" id="7jw-rG-Nsl"/>
+                            <constraint firstItem="n8p-cK-ZXe" firstAttribute="leading" secondItem="cPq-yV-g1u" secondAttribute="leadingMargin" id="BrD-Ch-vj8"/>
+                            <constraint firstItem="DSW-Ni-fda" firstAttribute="trailing" secondItem="cPq-yV-g1u" secondAttribute="trailingMargin" id="C6h-qX-7Vw"/>
+                            <constraint firstItem="aGw-kI-kyw" firstAttribute="trailing" secondItem="cPq-yV-g1u" secondAttribute="trailingMargin" id="Xno-ag-kKh"/>
+                            <constraint firstItem="aGw-kI-kyw" firstAttribute="leading" secondItem="cPq-yV-g1u" secondAttribute="leadingMargin" id="et1-DY-ieq"/>
+                            <constraint firstItem="DSW-Ni-fda" firstAttribute="top" secondItem="WhZ-xG-i2V" secondAttribute="bottom" constant="8" id="ghA-TU-Jnw"/>
+                            <constraint firstItem="aGw-kI-kyw" firstAttribute="top" secondItem="DSW-Ni-fda" secondAttribute="bottom" constant="8" id="oVp-8E-HSF"/>
+                            <constraint firstItem="n8p-cK-ZXe" firstAttribute="trailing" secondItem="cPq-yV-g1u" secondAttribute="trailingMargin" id="p4u-4V-e6J"/>
+                            <constraint firstItem="TCn-P2-qOU" firstAttribute="top" secondItem="n8p-cK-ZXe" secondAttribute="bottom" constant="8" id="vFa-sI-KgL"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Definition" id="aQY-az-grQ"/>
+                    <connections>
+                        <outlet property="definitionLabel" destination="n8p-cK-ZXe" id="D46-XS-IzV"/>
+                        <outlet property="partOfSpeechLabel" destination="aGw-kI-kyw" id="54e-S2-Iu2"/>
+                        <outlet property="wordLabel" destination="DSW-Ni-fda" id="uTf-gW-eXc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZz-zX-Ovz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1632" y="722"/>
+            <point key="canvasLocation" x="1676" y="730"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Lye-rg-VwI">
@@ -270,4 +295,7 @@
             <point key="canvasLocation" x="-665" y="730"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="WtZ-Nh-NOs"/>
+    </inferredMetricsTieBreakers>
 </document>

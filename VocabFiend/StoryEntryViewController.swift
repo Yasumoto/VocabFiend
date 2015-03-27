@@ -9,7 +9,7 @@
 import UIKit
 import GameKit
 
-class GuessDefinitionViewController: UIViewController {
+class StoryEntryViewController: UIViewController {
 
     @IBOutlet weak var storyTextView: UITextView!
     
