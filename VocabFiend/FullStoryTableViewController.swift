@@ -93,15 +93,24 @@ class FullStoryTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    //        submission = NSKeyedUnarchiver.unarchiveObjectWithData(matchData) as? Submission
+        let destinationController = segue.destinationViewController as CreateSubmissionViewController
+        
+        if segue.identifier == "viewEntry" {
+            destinationController.submissionType = SubmissionState.View
+            let index = tableView.indexPathForCell(sender as UITableViewCell)
+            let submission = submissions![index!.row]
+            //TODO(Yasumoto): Just pass a submission
+            destinationController.firstWord = submission.firstWord
+            destinationController.secondWord = submission.secondWord
+            destinationController.thirdWord = submission.thirdWord
+            destinationController.story = submission.story
+        } else if segue.identifier == "addEntry" {
+            destinationController.submissionType = SubmissionState.AddSubmission
+            destinationController.matchData = submissions
+        }
     }
-    */
 
 }

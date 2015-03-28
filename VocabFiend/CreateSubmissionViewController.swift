@@ -25,6 +25,8 @@ class CreateSubmissionViewController: UIViewController, GKTurnBasedMatchmakerVie
     var firstWord : Entry?
     var secondWord : Entry?
     var thirdWord : Entry?
+    var story : String?
+    var matchData : [Submission]?
     
     var submissionType : SubmissionState?
     
@@ -32,6 +34,7 @@ class CreateSubmissionViewController: UIViewController, GKTurnBasedMatchmakerVie
         super.viewDidLoad()
         storyTextView.delegate = self
         
+        //TODO(jsmith): How about if a Submission is given, just set everything, otherwise assume it's new?
         if submissionType! != SubmissionState.View {
             var randomIndex = 0
             
@@ -43,6 +46,8 @@ class CreateSubmissionViewController: UIViewController, GKTurnBasedMatchmakerVie
             
             randomIndex = getRandomIndex()
             thirdWord = wordList[randomIndex]
+        } else {
+            self.storyTextView.text = story
         }
         firstEntry.setTitle(firstWord!.word, forState: UIControlState.Normal)
         secondEntry.setTitle(secondWord!.word, forState: UIControlState.Normal)
@@ -95,8 +100,14 @@ class CreateSubmissionViewController: UIViewController, GKTurnBasedMatchmakerVie
         let oneWeek = 60.0 * 60.0 * 24.0 * 7.0
 
         let submission = Submission(firstWord: firstWord!, secondWord: secondWord!, thirdWord: thirdWord!, story: self.storyTextView.text)
-        //TODO(Yasumoto): How will you handle appending a new submission to the array?
-        let data = NSKeyedArchiver.archivedDataWithRootObject([submission])
+        var data : NSData
+        // TODO(Yasumoto): Aka... if self.matchData already exists, then append.
+        if self.submissionType == SubmissionState.New {
+            data = NSKeyedArchiver.archivedDataWithRootObject([submission])
+        } else {
+            matchData!.append(submission)
+            data = NSKeyedArchiver.archivedDataWithRootObject(matchData!)
+        }
         match.endTurnWithNextParticipants([otherPlayer!, match.currentParticipant], turnTimeout: NSTimeInterval(oneWeek), matchData: data, completionHandler: endGKMatchTurn)
         viewController.dismissViewControllerAnimated(true, completion: nil)
     }
