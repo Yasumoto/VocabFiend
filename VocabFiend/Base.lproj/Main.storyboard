@@ -44,7 +44,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="VocabFiend" id="6mf-Dp-OP7">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="g76-5O-wud"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="g76-5O-wud">
+                            <connections>
+                                <action selector="refreshMatches:" destination="ATg-Pd-zUx" id="vMe-wW-dtK"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2TC-4d-9ES">
                             <connections>
                                 <segue destination="Iv3-Ge-hdN" kind="show" identifier="newMatch" id="rxp-ME-nbk"/>
@@ -87,7 +91,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="2CY-b1-xeP" kind="show" id="s2Z-12-pMm"/>
+                                    <segue destination="2CY-b1-xeP" kind="show" identifier="wordOne" id="s2Z-12-pMm"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter your wonderful story here!" translatesAutoresizingMaskIntoConstraints="NO" id="b8a-JR-gRH">
@@ -259,6 +263,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="rxp-ME-nbk"/>
-        <segue reference="WtZ-Nh-NOs"/>
+        <segue reference="s2Z-12-pMm"/>
     </inferredMetricsTieBreakers>
 </document>

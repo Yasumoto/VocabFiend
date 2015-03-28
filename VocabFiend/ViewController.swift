@@ -32,8 +32,8 @@ class ViewController: UITableViewController, UITextViewDelegate {
     func textViewDidBeginEditing(textView: UITextView) {
         textView.text = ""
     }
-
-    @IBAction func refreshMatches(sender: UIButton) {
+    
+    @IBAction func refreshMatches(sender: UIBarButtonItem) {
         loadMatches()
     }
     
@@ -117,9 +117,11 @@ class ViewController: UITableViewController, UITextViewDelegate {
 
         GKTurnBasedMatch.loadMatchesWithCompletionHandler({ (objects : [AnyObject]!, error : NSError!) -> Void in
             self.matches = [GKTurnBasedMatch]()
-            for object in objects {
-                if let match = object as? GKTurnBasedMatch {
-                    self.matches.append(match)
+            if objects != nil {
+                for object in objects {
+                    if let match = object as? GKTurnBasedMatch {
+                        self.matches.append(match)
+                    }
                 }
             }
             self.tableView.reloadData()
