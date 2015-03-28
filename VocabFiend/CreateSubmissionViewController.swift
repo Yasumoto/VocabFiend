@@ -101,8 +101,7 @@ class CreateSubmissionViewController: UIViewController, GKTurnBasedMatchmakerVie
 
         let submission = Submission(firstWord: firstWord!, secondWord: secondWord!, thirdWord: thirdWord!, story: self.storyTextView.text)
         var data : NSData
-        // TODO(Yasumoto): Aka... if self.matchData already exists, then append.
-        if self.submissionType == SubmissionState.New {
+        if matchData == nil {
             data = NSKeyedArchiver.archivedDataWithRootObject([submission])
         } else {
             matchData!.append(submission)

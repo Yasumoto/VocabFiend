@@ -19,6 +19,7 @@
 		40C6378F1AB65A71004CBF10 /* Submission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6378D1AB65A71004CBF10 /* Submission.swift */; };
 		40C637911AB65B3A004CBF10 /* CreateSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C637901AB65B3A004CBF10 /* CreateSubmissionViewController.swift */; };
 		40C637931AB65D99004CBF10 /* WordDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C637921AB65D99004CBF10 /* WordDictionary.swift */; };
+		40F0DE2D1AC63FB900C81E91 /* VocabDemon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 40F0DE2C1AC63FB900C81E91 /* VocabDemon1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		40C6378D1AB65A71004CBF10 /* Submission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Submission.swift; sourceTree = "<group>"; };
 		40C637901AB65B3A004CBF10 /* CreateSubmissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSubmissionViewController.swift; sourceTree = "<group>"; };
 		40C637921AB65D99004CBF10 /* WordDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDictionary.swift; sourceTree = "<group>"; };
+		40F0DE2C1AC63FB900C81E91 /* VocabDemon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VocabDemon1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				40C637901AB65B3A004CBF10 /* CreateSubmissionViewController.swift */,
 				40920C391AC5E0E400735C27 /* EntryDisplayPopoverController.swift */,
 				40C637711AB658FA004CBF10 /* Images.xcassets */,
+				40F0DE2C1AC63FB900C81E91 /* VocabDemon1.png */,
 				40C637731AB658FA004CBF10 /* LaunchScreen.xib */,
 				40C6378D1AB65A71004CBF10 /* Submission.swift */,
 				40C637921AB65D99004CBF10 /* WordDictionary.swift */,
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40C637701AB658FA004CBF10 /* Main.storyboard in Resources */,
+				40F0DE2D1AC63FB900C81E91 /* VocabDemon1.png in Resources */,
 				40C637751AB658FA004CBF10 /* LaunchScreen.xib in Resources */,
 				40C637721AB658FA004CBF10 /* Images.xcassets in Resources */,
 			);
