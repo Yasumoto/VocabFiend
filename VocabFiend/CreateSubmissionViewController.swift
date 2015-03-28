@@ -75,6 +75,13 @@ class CreateSubmissionViewController: UIViewController, GKTurnBasedMatchmakerVie
     
     // MARK: - GKTurnBasedMatchmakerViewControllerDelegate
     
+    func endGKMatchTurn(error : NSError!) {
+        println("We've finished ending the turn. NSError: \(error)")
+        if error == nil {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+    }
+    
     func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController!, didFindMatch match: GKTurnBasedMatch!) {
         println("Found a match!")
         var otherPlayer : GKTurnBasedParticipant? = nil
@@ -88,8 +95,10 @@ class CreateSubmissionViewController: UIViewController, GKTurnBasedMatchmakerVie
         let oneWeek = 60.0 * 60.0 * 24.0 * 7.0
 
         let submission = Submission(firstWord: firstWord!, secondWord: secondWord!, thirdWord: thirdWord!, story: self.storyTextView.text)
-        let data = NSKeyedArchiver.archivedDataWithRootObject(submission)
-        match.endTurnWithNextParticipants([otherPlayer!, match.currentParticipant], turnTimeout: NSTimeInterval(oneWeek), matchData: data, completionHandler: { (error) in println("We've finished ending the turn. NSError: \(error)"); viewController.dismissViewControllerAnimated(true, completion: nil) })
+        //TODO(Yasumoto): How will you handle appending a new submission to the array?
+        let data = NSKeyedArchiver.archivedDataWithRootObject([submission])
+        match.endTurnWithNextParticipants([otherPlayer!, match.currentParticipant], turnTimeout: NSTimeInterval(oneWeek), matchData: data, completionHandler: endGKMatchTurn)
+        viewController.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func turnBasedMatchmakerViewControllerWasCancelled(viewController: GKTurnBasedMatchmakerViewController!) {

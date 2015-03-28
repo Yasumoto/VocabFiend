@@ -12,6 +12,7 @@ import UIKit
 class FullStoryTableViewController: UITableViewController {
     
     var match : GKTurnBasedMatch?
+    var submissions : [Submission]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +22,14 @@ class FullStoryTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        println("Loading matchData for \(match!.matchID)")
         match!.loadMatchDataWithCompletionHandler(updateMatchData)
     }
     
     func updateMatchData(matchData: NSData!, error: NSError!) -> Void {
+        submissions = NSKeyedUnarchiver.unarchiveObjectWithData(matchData) as? [Submission]
+        self.tableView.reloadData()
+        println("We found \(submissions!.count) submissions")
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,27 +40,24 @@ class FullStoryTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
+        if submissions != nil {
+            return submissions!.count
+        }
         return 0
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
-
-        // Configure the cell...
-
+        let submission = submissions![indexPath.row]
+        println("Using submission: \(submission)")
+        let cell = tableView.dequeueReusableCellWithIdentifier("submission", forIndexPath: indexPath) as UITableViewCell
+        cell.textLabel?.text = submission.story
         return cell
     }
-    */
-
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
