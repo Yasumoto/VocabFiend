@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4023D99C1AC7BFBA00AA8F6B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4023D99A1AC7BFBA00AA8F6B /* Crashlytics.framework */; };
+		4023D99D1AC7BFBA00AA8F6B /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4023D99B1AC7BFBA00AA8F6B /* Fabric.framework */; };
 		407698DD1AB669630092E192 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407698DC1AB669630092E192 /* GameKit.framework */; };
 		40920C3A1AC5E0E400735C27 /* EntryDisplayPopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40920C391AC5E0E400735C27 /* EntryDisplayPopoverController.swift */; };
 		40920C3C1AC5E7A400735C27 /* FullStoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40920C3B1AC5E7A400735C27 /* FullStoryTableViewController.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4023D99A1AC7BFBA00AA8F6B /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
+		4023D99B1AC7BFBA00AA8F6B /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		407698DC1AB669630092E192 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		40920C391AC5E0E400735C27 /* EntryDisplayPopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDisplayPopoverController.swift; sourceTree = "<group>"; };
 		40920C3B1AC5E7A400735C27 /* FullStoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullStoryTableViewController.swift; sourceTree = "<group>"; };
@@ -62,7 +66,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				40F0DE311AC79D0A00C81E91 /* Realm.framework in Frameworks */,
+				4023D99C1AC7BFBA00AA8F6B /* Crashlytics.framework in Frameworks */,
 				407698DD1AB669630092E192 /* GameKit.framework in Frameworks */,
+				4023D99D1AC7BFBA00AA8F6B /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +123,8 @@
 		40C637681AB658FA004CBF10 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4023D99A1AC7BFBA00AA8F6B /* Crashlytics.framework */,
+				4023D99B1AC7BFBA00AA8F6B /* Fabric.framework */,
 				40F0DE301AC79D0A00C81E91 /* Realm.framework */,
 				407698DC1AB669630092E192 /* GameKit.framework */,
 				40C637691AB658FA004CBF10 /* Info.plist */,
@@ -152,6 +160,7 @@
 				40C637621AB658FA004CBF10 /* Frameworks */,
 				40C637631AB658FA004CBF10 /* Resources */,
 				40F0DE321AC7B52B00C81E91 /* ShellScript */,
+				40DB54171AC7BE85001F4C86 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -245,6 +254,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		40DB54171AC7BE85001F4C86 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 1b2193c500133c2a1675e030719aca913d68264f 23f25a26c5c653a9f55ddceffdd24e621e177029b524e5d6a8d039da97c766e7";
+		};
 		40F0DE321AC7B52B00C81E91 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -334,7 +356,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -405,6 +427,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = VocabFiend/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
@@ -423,6 +446,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = VocabFiend/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
