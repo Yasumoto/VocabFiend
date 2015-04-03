@@ -9,12 +9,6 @@
 import UIKit
 import GameKit
 
-enum SubmissionState {
-    case New;
-    case AddSubmission;
-    case View;
-}
-
 class CreateSubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewControllerDelegate, UITextViewDelegate {
     @IBOutlet weak var firstEntry: UIButton!
     @IBOutlet weak var secondEntry: UIButton!
@@ -28,14 +22,11 @@ class CreateSubmissionViewController: UIViewController, GKTurnBasedMatchmakerVie
     var story : String?
     var matchData : [Submission]?
     
-    var submissionType : SubmissionState?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         storyTextView.delegate = self
         
-        //TODO(jsmith): How about if a Submission is given, just set everything, otherwise assume it's new?
-        if submissionType! != SubmissionState.View {
+        if story == nil {
             var randomIndex = 0
             
             randomIndex = getRandomIndex()

@@ -99,7 +99,6 @@ class FullStoryTableViewController: UITableViewController {
         let destinationController = segue.destinationViewController as CreateSubmissionViewController
         
         if segue.identifier == "viewEntry" {
-            destinationController.submissionType = SubmissionState.View
             let index = tableView.indexPathForCell(sender as UITableViewCell)
             let submission = submissions![index!.row]
             //TODO(Yasumoto): Just pass a submission
@@ -108,7 +107,6 @@ class FullStoryTableViewController: UITableViewController {
             destinationController.thirdWord = submission.thirdWord
             destinationController.story = submission.story
         } else if segue.identifier == "addEntry" {
-            destinationController.submissionType = SubmissionState.AddSubmission
             destinationController.matchData = submissions
         }
     }

@@ -50,7 +50,6 @@ class ViewController: UITableViewController, UITextViewDelegate {
             guessingController.match = matches[index!]
         } else if segue.identifier == "newMatch" {
             let submissionController = segue.destinationViewController as CreateSubmissionViewController
-            submissionController.submissionType = SubmissionState.AddSubmission
         }
     }
     
