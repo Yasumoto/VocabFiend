@@ -8,11 +8,13 @@
 
 import GameKit
 import UIKit
+import Realm
 
 class FullStoryTableViewController: UITableViewController {
     
     var match : GKTurnBasedMatch?
     var submissions : [Submission]?
+    let realm = RLMRealm.defaultRealm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +24,24 @@ class FullStoryTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        submissions = [Submission]()
+        let jimmeh = Submission.allObjects()
+        for result in jimmeh {
+            submissions?.append(result as! Submission)
+        }
         println("Loading matchData for \(match!.matchID)")
         match!.loadMatchDataWithCompletionHandler(updateMatchData)
     }
     
     func updateMatchData(matchData: NSData!, error: NSError!) -> Void {
         submissions = NSKeyedUnarchiver.unarchiveObjectWithData(matchData) as? [Submission]
+        realm.beginWriteTransaction()
+        realm.deleteAllObjects()
+        for submission in submissions! {
+            Submission.createOrUpdateInDefaultRealmWithObject(submission)
+            
+        }
+        realm.commitWriteTransaction()
         self.tableView.reloadData()
         println("We found \(submissions!.count) submissions")
     }
@@ -52,8 +66,8 @@ class FullStoryTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let submission = submissions![indexPath.row]
-        println("Using submission: \(submission)")
-        let cell = tableView.dequeueReusableCellWithIdentifier("submission", forIndexPath: indexPath) as UITableViewCell
+        println("Using submission: \(submission.firstWord?.word), \(submission.secondWord?.word), \(submission.thirdWord?.word)")
+        let cell = tableView.dequeueReusableCellWithIdentifier("submission", forIndexPath: indexPath)as! UITableViewCell
         cell.textLabel?.text = submission.story
         return cell
     }
@@ -96,10 +110,10 @@ class FullStoryTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destinationController = segue.destinationViewController as CreateSubmissionViewController
+        let destinationController = segue.destinationViewController as! CreateSubmissionViewController
         
         if segue.identifier == "viewEntry" {
-            let index = tableView.indexPathForCell(sender as UITableViewCell)
+            let index = tableView.indexPathForCell(sender as! UITableViewCell)
             let submission = submissions![index!.row]
             //TODO(Yasumoto): Just pass a submission
             destinationController.firstWord = submission.firstWord

@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import Realm
 
-class Entry: NSObject, NSCoding {
+class Entry: RLMObject, NSCoding {
     var word : String?
     var partOfSpeech : String?
     var definition : String?

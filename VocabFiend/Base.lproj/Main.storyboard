@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2aa-r0-Zc1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2aa-r0-Zc1">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -164,19 +164,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Word" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSW-Ni-fda">
-                                <rect key="frame" x="16" y="72" width="568" height="20.5"/>
+                                <rect key="frame" x="16" y="72" width="568" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="2Fa-GY-lMw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Part of Speech" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGw-kI-kyw">
-                                <rect key="frame" x="16" y="100" width="568" height="20.5"/>
+                                <rect key="frame" x="16" y="101" width="568" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Fon-f2-SUV"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8p-cK-ZXe">
-                                <rect key="frame" x="16" y="129" width="568" height="419"/>
+                                <rect key="frame" x="16" y="130" width="568" height="167"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -185,16 +191,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="n8p-cK-ZXe" firstAttribute="top" secondItem="aGw-kI-kyw" secondAttribute="bottom" constant="8" id="5Jz-Ji-J7t"/>
-                            <constraint firstItem="DSW-Ni-fda" firstAttribute="leading" secondItem="cPq-yV-g1u" secondAttribute="leadingMargin" id="7jw-rG-Nsl"/>
-                            <constraint firstItem="n8p-cK-ZXe" firstAttribute="leading" secondItem="cPq-yV-g1u" secondAttribute="leadingMargin" id="BrD-Ch-vj8"/>
-                            <constraint firstItem="DSW-Ni-fda" firstAttribute="trailing" secondItem="cPq-yV-g1u" secondAttribute="trailingMargin" id="C6h-qX-7Vw"/>
-                            <constraint firstItem="aGw-kI-kyw" firstAttribute="trailing" secondItem="cPq-yV-g1u" secondAttribute="trailingMargin" id="Xno-ag-kKh"/>
-                            <constraint firstItem="aGw-kI-kyw" firstAttribute="leading" secondItem="cPq-yV-g1u" secondAttribute="leadingMargin" id="et1-DY-ieq"/>
-                            <constraint firstItem="DSW-Ni-fda" firstAttribute="top" secondItem="WhZ-xG-i2V" secondAttribute="bottom" constant="8" id="ghA-TU-Jnw"/>
-                            <constraint firstItem="aGw-kI-kyw" firstAttribute="top" secondItem="DSW-Ni-fda" secondAttribute="bottom" constant="8" id="oVp-8E-HSF"/>
-                            <constraint firstItem="n8p-cK-ZXe" firstAttribute="trailing" secondItem="cPq-yV-g1u" secondAttribute="trailingMargin" id="p4u-4V-e6J"/>
-                            <constraint firstItem="TCn-P2-qOU" firstAttribute="top" secondItem="n8p-cK-ZXe" secondAttribute="bottom" constant="8" id="vFa-sI-KgL"/>
+                            <constraint firstItem="aGw-kI-kyw" firstAttribute="leading" secondItem="n8p-cK-ZXe" secondAttribute="leading" id="4dr-nJ-aCT"/>
+                            <constraint firstItem="DSW-Ni-fda" firstAttribute="leading" secondItem="cPq-yV-g1u" secondAttribute="leadingMargin" id="NzD-Om-AVf"/>
+                            <constraint firstItem="aGw-kI-kyw" firstAttribute="top" secondItem="DSW-Ni-fda" secondAttribute="bottom" constant="8" symbolic="YES" id="QXP-o6-Nr4"/>
+                            <constraint firstItem="TCn-P2-qOU" firstAttribute="top" secondItem="n8p-cK-ZXe" secondAttribute="bottom" constant="259" id="Sgl-Vz-SdK"/>
+                            <constraint firstItem="n8p-cK-ZXe" firstAttribute="top" secondItem="aGw-kI-kyw" secondAttribute="bottom" constant="8" symbolic="YES" id="ZrE-Jt-0hj"/>
+                            <constraint firstItem="aGw-kI-kyw" firstAttribute="trailing" secondItem="n8p-cK-ZXe" secondAttribute="trailing" id="cn8-Yy-thz"/>
+                            <constraint firstItem="aGw-kI-kyw" firstAttribute="leading" secondItem="DSW-Ni-fda" secondAttribute="leading" id="hUW-Yt-Z83"/>
+                            <constraint firstItem="DSW-Ni-fda" firstAttribute="trailing" secondItem="aGw-kI-kyw" secondAttribute="trailing" id="iZU-Jm-DOa"/>
+                            <constraint firstItem="DSW-Ni-fda" firstAttribute="top" secondItem="WhZ-xG-i2V" secondAttribute="bottom" constant="8" symbolic="YES" id="v5d-pl-xsZ"/>
+                            <constraint firstItem="n8p-cK-ZXe" firstAttribute="trailing" secondItem="cPq-yV-g1u" secondAttribute="trailingMargin" id="xZk-gJ-1HO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Definition" id="aQY-az-grQ"/>
@@ -271,6 +277,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="rRl-NA-TC5"/>
-        <segue reference="s2Z-12-pMm"/>
+        <segue reference="WtZ-Nh-NOs"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="1" green="0.17544410072332617" blue="0.21492216433566924" alpha="1" colorSpace="calibratedRGB"/>
 </document>

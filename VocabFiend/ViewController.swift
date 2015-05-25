@@ -44,12 +44,12 @@ class ViewController: UITableViewController, UITextViewDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "viewMatch" {
-            let guessingController = segue.destinationViewController as FullStoryTableViewController
-            let cell = sender as UITableViewCell
+            let guessingController = segue.destinationViewController as! FullStoryTableViewController
+            let cell = sender as! UITableViewCell
             let index = self.tableView.indexPathForCell(cell)?.row
             guessingController.match = matches[index!]
         } else if segue.identifier == "newMatch" {
-            let submissionController = segue.destinationViewController as CreateSubmissionViewController
+            let submissionController = segue.destinationViewController as! CreateSubmissionViewController
         }
     }
     
@@ -64,10 +64,10 @@ class ViewController: UITableViewController, UITextViewDelegate {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
         
         let match = matches[indexPath.row]
-        let participant = match.participants[0] as GKTurnBasedParticipant
+        let participant = match.participants[0] as! GKTurnBasedParticipant
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle

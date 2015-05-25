@@ -9,7 +9,7 @@
 import UIKit
 import GameKit
 
-class CreateSubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewControllerDelegate, UITextViewDelegate {
+class CreateSubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewControllerDelegate, UITextViewDelegate, UIPopoverPresentationControllerDelegate {
     @IBOutlet weak var firstEntry: UIButton!
     @IBOutlet weak var secondEntry: UIButton!
     @IBOutlet weak var thirdEntry: UIButton!
@@ -46,14 +46,19 @@ class CreateSubmissionViewController: UIViewController, GKTurnBasedMatchmakerVie
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let entryDisplay = segue.destinationViewController as EntryDisplayPopoverController
-        let word = sender as UIButton
+        let entryDisplay = segue.destinationViewController as! EntryDisplayPopoverController
+        let word = sender as! UIButton
         if segue.identifier == "wordOne" {
             entryDisplay.entry = firstWord
         } else if segue.identifier == "wordTwo" {
             entryDisplay.entry = secondWord
         } else {
             entryDisplay.entry = thirdWord
+        }
+        if let ppc = entryDisplay.popoverPresentationController {
+            //entryDisplay.preferredContentSize = CGSize(width: 150, height: 50)
+            //ppc.delegate = self
+            //print("We're actually setting the preferred content size now")
         }
     }
 
@@ -131,6 +136,11 @@ class CreateSubmissionViewController: UIViewController, GKTurnBasedMatchmakerVie
         if textView.text == "Enter your wonderful story here!" {
             textView.text = ""
         }
+    }
+    
+    // Mark: - UIPopoverPresentationViewControllerDelegate
+    func popoverPresentationControllerShouldDismissPopover(popoverPresentationController: UIPopoverPresentationController) -> Bool {
+        return true
     }
     
 }
