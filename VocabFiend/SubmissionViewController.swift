@@ -9,7 +9,7 @@
 import UIKit
 import GameKit
 
-class CreateSubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewControllerDelegate, UITextViewDelegate, UIPopoverPresentationControllerDelegate {
+class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewControllerDelegate, UITextViewDelegate, UIPopoverPresentationControllerDelegate {
     @IBOutlet weak var firstEntry: UIButton!
     @IBOutlet weak var secondEntry: UIButton!
     @IBOutlet weak var thirdEntry: UIButton!
@@ -39,6 +39,7 @@ class CreateSubmissionViewController: UIViewController, GKTurnBasedMatchmakerVie
             thirdWord = wordList[randomIndex]
         } else {
             self.storyTextView.text = story
+            self.navigationItem.rightBarButtonItem = nil
         }
         firstEntry.setTitle(firstWord!.word, forState: UIControlState.Normal)
         secondEntry.setTitle(secondWord!.word, forState: UIControlState.Normal)
@@ -54,11 +55,6 @@ class CreateSubmissionViewController: UIViewController, GKTurnBasedMatchmakerVie
             entryDisplay.entry = secondWord
         } else {
             entryDisplay.entry = thirdWord
-        }
-        if let ppc = entryDisplay.popoverPresentationController {
-            //entryDisplay.preferredContentSize = CGSize(width: 150, height: 50)
-            //ppc.delegate = self
-            //print("We're actually setting the preferred content size now")
         }
     }
 

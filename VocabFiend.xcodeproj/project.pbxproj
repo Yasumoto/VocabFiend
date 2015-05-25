@@ -19,7 +19,7 @@
 		40C637751AB658FA004CBF10 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40C637731AB658FA004CBF10 /* LaunchScreen.xib */; };
 		40C637811AB658FA004CBF10 /* VocabFiendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C637801AB658FA004CBF10 /* VocabFiendTests.swift */; };
 		40C6378F1AB65A71004CBF10 /* Submission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6378D1AB65A71004CBF10 /* Submission.swift */; };
-		40C637911AB65B3A004CBF10 /* CreateSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C637901AB65B3A004CBF10 /* CreateSubmissionViewController.swift */; };
+		40C637911AB65B3A004CBF10 /* SubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C637901AB65B3A004CBF10 /* SubmissionViewController.swift */; };
 		40C637931AB65D99004CBF10 /* WordDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C637921AB65D99004CBF10 /* WordDictionary.swift */; };
 		40F0DE2D1AC63FB900C81E91 /* VocabDemon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 40F0DE2C1AC63FB900C81E91 /* VocabDemon1.png */; };
 		40F0DE2F1AC7559E00C81E91 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F0DE2E1AC7559E00C81E91 /* RLMSupport.swift */; };
@@ -53,7 +53,7 @@
 		40C6377F1AB658FA004CBF10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40C637801AB658FA004CBF10 /* VocabFiendTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabFiendTests.swift; sourceTree = "<group>"; };
 		40C6378D1AB65A71004CBF10 /* Submission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Submission.swift; sourceTree = "<group>"; };
-		40C637901AB65B3A004CBF10 /* CreateSubmissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSubmissionViewController.swift; sourceTree = "<group>"; };
+		40C637901AB65B3A004CBF10 /* SubmissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmissionViewController.swift; sourceTree = "<group>"; };
 		40C637921AB65D99004CBF10 /* WordDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDictionary.swift; sourceTree = "<group>"; };
 		40F0DE2C1AC63FB900C81E91 /* VocabDemon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VocabDemon1.png; sourceTree = "<group>"; };
 		40F0DE2E1AC7559E00C81E91 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 				40C6376C1AB658FA004CBF10 /* ViewController.swift */,
 				40C6376E1AB658FA004CBF10 /* Main.storyboard */,
 				40920C3B1AC5E7A400735C27 /* FullStoryTableViewController.swift */,
-				40C637901AB65B3A004CBF10 /* CreateSubmissionViewController.swift */,
+				40C637901AB65B3A004CBF10 /* SubmissionViewController.swift */,
 				40920C391AC5E0E400735C27 /* EntryDisplayPopoverController.swift */,
 				40C637711AB658FA004CBF10 /* Images.xcassets */,
 				40F0DE2C1AC63FB900C81E91 /* VocabDemon1.png */,
@@ -290,7 +290,7 @@
 			files = (
 				40920C3C1AC5E7A400735C27 /* FullStoryTableViewController.swift in Sources */,
 				40C6376D1AB658FA004CBF10 /* ViewController.swift in Sources */,
-				40C637911AB65B3A004CBF10 /* CreateSubmissionViewController.swift in Sources */,
+				40C637911AB65B3A004CBF10 /* SubmissionViewController.swift in Sources */,
 				40F0DE2F1AC7559E00C81E91 /* RLMSupport.swift in Sources */,
 				40C6376B1AB658FA004CBF10 /* AppDelegate.swift in Sources */,
 				40C6378F1AB65A71004CBF10 /* Submission.swift in Sources */,

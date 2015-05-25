@@ -67,7 +67,7 @@
         <!--Story Entry-->
         <scene sceneID="DFX-lq-BZt">
             <objects>
-                <viewController id="Iv3-Ge-hdN" customClass="CreateSubmissionViewController" customModule="VocabFiend" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Iv3-Ge-hdN" customClass="SubmissionViewController" customModule="VocabFiend" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7GO-rm-T2t"/>
                         <viewControllerLayoutGuide type="bottom" id="GPI-sO-beA"/>
@@ -133,7 +133,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Story Entry" id="jAa-ke-7rg">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="wlS-j6-6mj">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="wlS-j6-6mj">
                             <connections>
                                 <action selector="createdDefinition:" destination="Iv3-Ge-hdN" id="rOH-uR-cGc"/>
                             </connections>

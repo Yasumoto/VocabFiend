@@ -110,7 +110,7 @@ class FullStoryTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destinationController = segue.destinationViewController as! CreateSubmissionViewController
+        let destinationController = segue.destinationViewController as! SubmissionViewController
         
         if segue.identifier == "viewEntry" {
             let index = tableView.indexPathForCell(sender as! UITableViewCell)

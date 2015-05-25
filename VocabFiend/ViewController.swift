@@ -49,7 +49,7 @@ class ViewController: UITableViewController, UITextViewDelegate {
             let index = self.tableView.indexPathForCell(cell)?.row
             guessingController.match = matches[index!]
         } else if segue.identifier == "newMatch" {
-            let submissionController = segue.destinationViewController as! CreateSubmissionViewController
+            let submissionController = segue.destinationViewController as! SubmissionViewController
         }
     }
     
