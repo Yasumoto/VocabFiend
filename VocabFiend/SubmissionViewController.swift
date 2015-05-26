@@ -23,7 +23,7 @@ class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewContr
     var story: String?
     var matchData: [Submission]?
 
-    let saveForLater = "ToSubmitSoon"
+    let saveForLater = "\(NSBundle.mainBundle().resourcePath!)/ToSubmitSoon"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,11 +102,13 @@ class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewContr
 
         let submission = Submission(firstWord: firstWord!, secondWord: secondWord!, thirdWord: thirdWord!, story: self.storyTextView.text)
 
+        /*
         let realm = RLMRealm(path: saveForLater)
         realm.beginWriteTransaction()
         RLMObject.createOrUpdateInRealm(realm, withObject: submission)
         print("Saving \(submission)")
         realm.commitWriteTransaction()
+        */
 
         var data: NSData
         if matchData == nil {
