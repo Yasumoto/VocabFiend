@@ -161,6 +161,7 @@
 				40C637631AB658FA004CBF10 /* Resources */,
 				40F0DE321AC7B52B00C81E91 /* ShellScript */,
 				40DB54171AC7BE85001F4C86 /* ShellScript */,
+				403F810D1B140AB1006B0C35 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -254,6 +255,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		403F810D1B140AB1006B0C35 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "pushd ./VocabFiend\n#/usr/local/bin/swiftlint\npopd\n\npushd ./VocabFiendTests\n/usr/local/bin/swiftlint\npopd";
+		};
 		40DB54171AC7BE85001F4C86 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
