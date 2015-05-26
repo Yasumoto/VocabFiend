@@ -78,12 +78,14 @@ class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewContr
     func endGKMatchTurn(error: NSError!) {
         println("We've finished ending the turn. NSError: \(error)")
         if error == nil {
+            /*
             let realm = RLMRealm(path: saveForLater)
             realm.beginWriteTransaction()
             let objects = RLMObject.objectsInRealm(realm, withPredicate: NSPredicate(format: "%K like %@", argumentArray: ["story", "\(story)"]))
             print("Found and removing \(objects)")
             realm.deleteObjects(objects)
             realm.commitWriteTransaction()
+            */
             self.navigationController?.popViewControllerAnimated(true)
         }
     }
