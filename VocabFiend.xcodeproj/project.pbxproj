@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4008156B1B1AC40200F216CD /* TurnManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008156A1B1AC40200F216CD /* TurnManager.swift */; };
+		4008156C1B1AC40200F216CD /* TurnManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008156A1B1AC40200F216CD /* TurnManager.swift */; };
+		4008156E1B1AD6A300F216CD /* TestTurnManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008156D1B1AD6A300F216CD /* TestTurnManager.swift */; };
 		4023D99C1AC7BFBA00AA8F6B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4023D99A1AC7BFBA00AA8F6B /* Crashlytics.framework */; };
 		4023D99D1AC7BFBA00AA8F6B /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4023D99B1AC7BFBA00AA8F6B /* Fabric.framework */; };
 		407698DD1AB669630092E192 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407698DC1AB669630092E192 /* GameKit.framework */; };
@@ -37,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4008156A1B1AC40200F216CD /* TurnManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnManager.swift; sourceTree = "<group>"; };
+		4008156D1B1AD6A300F216CD /* TestTurnManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestTurnManager.swift; path = ../VocabFiend/TestTurnManager.swift; sourceTree = "<group>"; };
 		4023D99A1AC7BFBA00AA8F6B /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		4023D99B1AC7BFBA00AA8F6B /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		407698DC1AB669630092E192 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
@@ -105,6 +110,7 @@
 			children = (
 				40C6376A1AB658FA004CBF10 /* AppDelegate.swift */,
 				40C6376C1AB658FA004CBF10 /* ViewController.swift */,
+				4008156A1B1AC40200F216CD /* TurnManager.swift */,
 				40C6376E1AB658FA004CBF10 /* Main.storyboard */,
 				40920C3B1AC5E7A400735C27 /* FullStoryTableViewController.swift */,
 				40C637901AB65B3A004CBF10 /* SubmissionViewController.swift */,
@@ -135,6 +141,7 @@
 		40C6377D1AB658FA004CBF10 /* VocabFiendTests */ = {
 			isa = PBXGroup;
 			children = (
+				4008156D1B1AD6A300F216CD /* TestTurnManager.swift */,
 				40C637801AB658FA004CBF10 /* VocabFiendTests.swift */,
 				40C6377E1AB658FA004CBF10 /* Supporting Files */,
 			);
@@ -305,6 +312,7 @@
 				40920C3C1AC5E7A400735C27 /* FullStoryTableViewController.swift in Sources */,
 				40C6376D1AB658FA004CBF10 /* ViewController.swift in Sources */,
 				40C637911AB65B3A004CBF10 /* SubmissionViewController.swift in Sources */,
+				4008156B1B1AC40200F216CD /* TurnManager.swift in Sources */,
 				40F0DE2F1AC7559E00C81E91 /* RLMSupport.swift in Sources */,
 				40C6376B1AB658FA004CBF10 /* AppDelegate.swift in Sources */,
 				40C6378F1AB65A71004CBF10 /* Submission.swift in Sources */,
@@ -317,6 +325,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4008156C1B1AC40200F216CD /* TurnManager.swift in Sources */,
+				4008156E1B1AD6A300F216CD /* TestTurnManager.swift in Sources */,
 				40C637811AB658FA004CBF10 /* VocabFiendTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

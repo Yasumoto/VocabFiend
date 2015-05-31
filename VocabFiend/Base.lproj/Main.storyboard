@@ -276,8 +276,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="s2Z-12-pMm"/>
         <segue reference="rRl-NA-TC5"/>
-        <segue reference="WtZ-Nh-NOs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.17544410072332617" blue="0.21492216433566924" alpha="1" colorSpace="calibratedRGB"/>
 </document>
