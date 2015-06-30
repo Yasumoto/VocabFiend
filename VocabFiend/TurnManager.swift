@@ -13,7 +13,13 @@ struct Match {
     var match : GKTurnBasedMatch
     var currentTurnPlayer : Player {
         get {
-            return Player(player: match.currentParticipant.player)
+            if let currentPlayer = match.currentParticipant.player {
+                return Player(player: match.currentParticipant.player)
+            }
+            else {
+                let participant = match.participants.first as! GKTurnBasedParticipant
+                return Player(player: participant.player)
+            }
         }
     }
     var otherPlayer : Player {
