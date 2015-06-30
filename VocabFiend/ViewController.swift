@@ -84,7 +84,7 @@ class ViewController: UITableViewController, UITextViewDelegate {
             cell.textLabel!.textColor = UIColor.grayColor()
         }
         else {
-            cell.textLabel!.textColor = UIColor.greenColor()
+            cell.textLabel!.textColor = UIColor.darkGrayColor()
 
         }
         cell.detailTextLabel!.text = "\(dateFormatter.stringFromDate(match.match.creationDate))"
