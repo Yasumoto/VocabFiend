@@ -15,16 +15,15 @@
 		407698DD1AB669630092E192 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407698DC1AB669630092E192 /* GameKit.framework */; };
 		40920C3A1AC5E0E400735C27 /* EntryDisplayPopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40920C391AC5E0E400735C27 /* EntryDisplayPopoverController.swift */; };
 		40920C3C1AC5E7A400735C27 /* FullStoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40920C3B1AC5E7A400735C27 /* FullStoryTableViewController.swift */; };
+		40C12EBA1B42424000D4B26F /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40C12EB91B42424000D4B26F /* Launch Screen.xib */; };
 		40C6376B1AB658FA004CBF10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6376A1AB658FA004CBF10 /* AppDelegate.swift */; };
 		40C6376D1AB658FA004CBF10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6376C1AB658FA004CBF10 /* ViewController.swift */; };
 		40C637701AB658FA004CBF10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C6376E1AB658FA004CBF10 /* Main.storyboard */; };
 		40C637721AB658FA004CBF10 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C637711AB658FA004CBF10 /* Images.xcassets */; };
-		40C637751AB658FA004CBF10 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40C637731AB658FA004CBF10 /* LaunchScreen.xib */; };
 		40C637811AB658FA004CBF10 /* VocabFiendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C637801AB658FA004CBF10 /* VocabFiendTests.swift */; };
 		40C6378F1AB65A71004CBF10 /* Submission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6378D1AB65A71004CBF10 /* Submission.swift */; };
 		40C637911AB65B3A004CBF10 /* SubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C637901AB65B3A004CBF10 /* SubmissionViewController.swift */; };
 		40C637931AB65D99004CBF10 /* WordDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C637921AB65D99004CBF10 /* WordDictionary.swift */; };
-		40F0DE2D1AC63FB900C81E91 /* VocabDemon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 40F0DE2C1AC63FB900C81E91 /* VocabDemon1.png */; };
 		40F0DE2F1AC7559E00C81E91 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F0DE2E1AC7559E00C81E91 /* RLMSupport.swift */; };
 		40F0DE311AC79D0A00C81E91 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F0DE301AC79D0A00C81E91 /* Realm.framework */; };
 /* End PBXBuildFile section */
@@ -47,20 +46,19 @@
 		407698DC1AB669630092E192 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		40920C391AC5E0E400735C27 /* EntryDisplayPopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDisplayPopoverController.swift; sourceTree = "<group>"; };
 		40920C3B1AC5E7A400735C27 /* FullStoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullStoryTableViewController.swift; sourceTree = "<group>"; };
+		40C12EB91B42424000D4B26F /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
 		40C637651AB658FA004CBF10 /* VocabFiend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VocabFiend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C637691AB658FA004CBF10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40C6376A1AB658FA004CBF10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40C6376C1AB658FA004CBF10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		40C6376F1AB658FA004CBF10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		40C637711AB658FA004CBF10 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		40C637741AB658FA004CBF10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		40C6377A1AB658FA004CBF10 /* VocabFiendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VocabFiendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C6377F1AB658FA004CBF10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40C637801AB658FA004CBF10 /* VocabFiendTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabFiendTests.swift; sourceTree = "<group>"; };
 		40C6378D1AB65A71004CBF10 /* Submission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Submission.swift; sourceTree = "<group>"; };
 		40C637901AB65B3A004CBF10 /* SubmissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmissionViewController.swift; sourceTree = "<group>"; };
 		40C637921AB65D99004CBF10 /* WordDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDictionary.swift; sourceTree = "<group>"; };
-		40F0DE2C1AC63FB900C81E91 /* VocabDemon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VocabDemon1.png; sourceTree = "<group>"; };
 		40F0DE2E1AC7559E00C81E91 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		40F0DE301AC79D0A00C81E91 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,11 +114,10 @@
 				40C637901AB65B3A004CBF10 /* SubmissionViewController.swift */,
 				40920C391AC5E0E400735C27 /* EntryDisplayPopoverController.swift */,
 				40C637711AB658FA004CBF10 /* Images.xcassets */,
-				40F0DE2C1AC63FB900C81E91 /* VocabDemon1.png */,
-				40C637731AB658FA004CBF10 /* LaunchScreen.xib */,
 				40C6378D1AB65A71004CBF10 /* Submission.swift */,
 				40C637921AB65D99004CBF10 /* WordDictionary.swift */,
 				40F0DE2E1AC7559E00C81E91 /* RLMSupport.swift */,
+				40C12EB91B42424000D4B26F /* Launch Screen.xib */,
 				40C637681AB658FA004CBF10 /* Supporting Files */,
 			);
 			path = VocabFiend;
@@ -246,9 +243,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				40C637701AB658FA004CBF10 /* Main.storyboard in Resources */,
-				40F0DE2D1AC63FB900C81E91 /* VocabDemon1.png in Resources */,
-				40C637751AB658FA004CBF10 /* LaunchScreen.xib in Resources */,
 				40C637721AB658FA004CBF10 /* Images.xcassets in Resources */,
+				40C12EBA1B42424000D4B26F /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,14 +346,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		40C637731AB658FA004CBF10 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				40C637741AB658FA004CBF10 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -446,6 +434,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Joseph Smith (ZE3SRXBFX6)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joseph Smith (ZE3SRXBFX6)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -465,6 +454,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Joseph Smith (ZE3SRXBFX6)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joseph Smith (ZE3SRXBFX6)";
 				FRAMEWORK_SEARCH_PATHS = (
