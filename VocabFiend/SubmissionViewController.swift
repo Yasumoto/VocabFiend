@@ -34,8 +34,10 @@ class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewContr
             firstWord = entries.removeFirst()
             secondWord = entries.removeFirst()
             thirdWord = entries.removeFirst()
+            self.storyTextView.editable = true
         } else {
             self.storyTextView.text = story
+            self.storyTextView.editable = false
             self.navigationItem.rightBarButtonItem = nil
         }
         firstEntry.setTitle(firstWord!.word, forState: UIControlState.Normal)
