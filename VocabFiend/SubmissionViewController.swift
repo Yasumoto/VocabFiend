@@ -22,6 +22,10 @@ class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewContr
     var thirdWord: Entry?
     var story: String?
     var matchData: [Submission]?
+    
+    func partOfExistingMatch() -> Bool {
+        return matchData != nil
+    }
 
     let saveForLater = "\(NSBundle.mainBundle().resourcePath!)/ToSubmitSoon"
 
@@ -58,15 +62,19 @@ class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewContr
     }
 
     @IBAction func createdDefinition(sender: UIBarButtonItem) {
-        var request: GKMatchRequest = GKMatchRequest()
-        request.minPlayers = 2
-        request.maxPlayers = 2
+        if partOfExistingMatch() {
+            //TODO(Yasumoto): Create a new turn.
+        } else {
+            var request: GKMatchRequest = GKMatchRequest()
+            request.minPlayers = 2
+            request.maxPlayers = 2
 
-        var mmvc: GKTurnBasedMatchmakerViewController = GKTurnBasedMatchmakerViewController.init(matchRequest: request);
-        mmvc.turnBasedMatchmakerDelegate = self;
+            var mmvc: GKTurnBasedMatchmakerViewController = GKTurnBasedMatchmakerViewController.init(matchRequest: request);
+            mmvc.turnBasedMatchmakerDelegate = self;
+            self.presentViewController(mmvc, animated:true, completion:nil)
+        }
 
         println("Story written: \(storyTextView.text)")
-        self.presentViewController(mmvc, animated:true, completion:nil)
     }
 
     // MARK: - GKTurnBasedMatchmakerViewControllerDelegate
@@ -109,11 +117,11 @@ class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewContr
         */
 
         var data: NSData
-        if matchData == nil {
-            data = NSKeyedArchiver.archivedDataWithRootObject([submission])
-        } else {
+        if partOfExistingMatch() {
             matchData!.append(submission)
             data = NSKeyedArchiver.archivedDataWithRootObject(matchData!)
+        } else {
+            data = NSKeyedArchiver.archivedDataWithRootObject([submission])
         }
         match.endTurnWithNextParticipants([otherPlayer!, match.currentParticipant], turnTimeout: NSTimeInterval(oneWeek), matchData: data, completionHandler: endGKMatchTurn)
 
