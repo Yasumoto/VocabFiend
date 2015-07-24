@@ -8,6 +8,7 @@
 
 import Foundation
 import GameKit
+import Realm
 
 struct Match {
     var match : GKTurnBasedMatch
