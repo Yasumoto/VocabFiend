@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		4008156B1B1AC40200F216CD /* TurnManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008156A1B1AC40200F216CD /* TurnManager.swift */; };
-		4008156C1B1AC40200F216CD /* TurnManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008156A1B1AC40200F216CD /* TurnManager.swift */; };
-		4008156E1B1AD6A300F216CD /* TestTurnManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008156D1B1AD6A300F216CD /* TestTurnManager.swift */; };
 		4023D99C1AC7BFBA00AA8F6B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4023D99A1AC7BFBA00AA8F6B /* Crashlytics.framework */; };
 		4023D99D1AC7BFBA00AA8F6B /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4023D99B1AC7BFBA00AA8F6B /* Fabric.framework */; };
 		407698DD1AB669630092E192 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407698DC1AB669630092E192 /* GameKit.framework */; };
 		40920C3A1AC5E0E400735C27 /* EntryDisplayPopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40920C391AC5E0E400735C27 /* EntryDisplayPopoverController.swift */; };
 		40920C3C1AC5E7A400735C27 /* FullStoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40920C3B1AC5E7A400735C27 /* FullStoryTableViewController.swift */; };
+		40A6742B1B61ECC100D1F469 /* TestWordDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A6742A1B61ECC100D1F469 /* TestWordDictionary.swift */; };
+		40A6742C1B61ED6E00D1F469 /* WordDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C637921AB65D99004CBF10 /* WordDictionary.swift */; };
+		40A6742D1B61ED9800D1F469 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F0DE2E1AC7559E00C81E91 /* RLMSupport.swift */; };
+		40A6742E1B61EDA400D1F469 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F0DE301AC79D0A00C81E91 /* Realm.framework */; };
 		40C12EBA1B42424000D4B26F /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40C12EB91B42424000D4B26F /* Launch Screen.xib */; };
 		40C6376B1AB658FA004CBF10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6376A1AB658FA004CBF10 /* AppDelegate.swift */; };
 		40C6376D1AB658FA004CBF10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6376C1AB658FA004CBF10 /* ViewController.swift */; };
@@ -40,12 +42,12 @@
 
 /* Begin PBXFileReference section */
 		4008156A1B1AC40200F216CD /* TurnManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnManager.swift; sourceTree = "<group>"; };
-		4008156D1B1AD6A300F216CD /* TestTurnManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestTurnManager.swift; path = ../VocabFiend/TestTurnManager.swift; sourceTree = "<group>"; };
 		4023D99A1AC7BFBA00AA8F6B /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		4023D99B1AC7BFBA00AA8F6B /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		407698DC1AB669630092E192 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		40920C391AC5E0E400735C27 /* EntryDisplayPopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDisplayPopoverController.swift; sourceTree = "<group>"; };
 		40920C3B1AC5E7A400735C27 /* FullStoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullStoryTableViewController.swift; sourceTree = "<group>"; };
+		40A6742A1B61ECC100D1F469 /* TestWordDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestWordDictionary.swift; sourceTree = "<group>"; };
 		40C12EB91B42424000D4B26F /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
 		40C637651AB658FA004CBF10 /* VocabFiend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VocabFiend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C637691AB658FA004CBF10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40A6742E1B61EDA400D1F469 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +141,8 @@
 		40C6377D1AB658FA004CBF10 /* VocabFiendTests */ = {
 			isa = PBXGroup;
 			children = (
-				4008156D1B1AD6A300F216CD /* TestTurnManager.swift */,
 				40C637801AB658FA004CBF10 /* VocabFiendTests.swift */,
+				40A6742A1B61ECC100D1F469 /* TestWordDictionary.swift */,
 				40C6377E1AB658FA004CBF10 /* Supporting Files */,
 			);
 			path = VocabFiendTests;
@@ -321,9 +324,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4008156C1B1AC40200F216CD /* TurnManager.swift in Sources */,
-				4008156E1B1AD6A300F216CD /* TestTurnManager.swift in Sources */,
+				40A6742D1B61ED9800D1F469 /* RLMSupport.swift in Sources */,
+				40A6742B1B61ECC100D1F469 /* TestWordDictionary.swift in Sources */,
 				40C637811AB658FA004CBF10 /* VocabFiendTests.swift in Sources */,
+				40A6742C1B61ED6E00D1F469 /* WordDictionary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +481,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -497,6 +502,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = VocabFiendTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;

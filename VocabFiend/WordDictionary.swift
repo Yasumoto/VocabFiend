@@ -41,6 +41,16 @@ func getRandomIndex() -> Int {
     return generatedIndex
 }
 
+func pickEntries(requestedEntries: Int) -> Set<Entry> {
+    var entries = Set<Entry>(minimumCapacity: requestedEntries)
+
+    while (entries.count != requestedEntries) {
+        entries.insert(wordList[getRandomIndex()])
+    }
+
+    return entries
+}
+
 let wordList = [
     Entry(word: "aberrant", partOfSpeech: "adj.", definition: "deviating from normal or correct."),
     Entry(word: "abscond", partOfSpeech: "v.", definition: "to leave secretly and hide, often to avoid the law."),

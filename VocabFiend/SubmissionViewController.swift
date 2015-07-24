@@ -30,16 +30,10 @@ class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewContr
         storyTextView.delegate = self
 
         if story == nil {
-            var randomIndex = 0
-
-            randomIndex = getRandomIndex()
-            firstWord = wordList[randomIndex]
-
-            randomIndex = getRandomIndex()
-            secondWord = wordList[randomIndex]
-
-            randomIndex = getRandomIndex()
-            thirdWord = wordList[randomIndex]
+            var entries = pickEntries(3)
+            firstWord = entries.removeFirst()
+            secondWord = entries.removeFirst()
+            thirdWord = entries.removeFirst()
         } else {
             self.storyTextView.text = story
             self.navigationItem.rightBarButtonItem = nil
