@@ -22,7 +22,7 @@ class TestWordDictionary: XCTestCase {
 
     func testPerformanceExample() {
         self.measureBlock() {
-            pickEntries(500)
+            pickEntries(10)
         }
     }
 
