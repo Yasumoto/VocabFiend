@@ -22,6 +22,7 @@ class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewContr
     var thirdWord: Entry?
     var story: String?
     var matchData: [Submission]?
+    var currentMatch: GKTurnBasedMatch?
     
     func partOfExistingMatch() -> Bool {
         return matchData != nil
@@ -61,9 +62,36 @@ class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewContr
         }
     }
 
+    func completeNewTurnInCurrentMatch(match: GKTurnBasedMatch) {
+        var otherPlayer: GKTurnBasedParticipant? = nil
+        for item in match.participants {
+            if let player = item as? GKTurnBasedParticipant {
+                if player != match.currentParticipant {
+                    otherPlayer = player
+                }
+            }
+        }
+        let oneWeek = 60.0 * 60.0 * 24.0 * 7.0
+
+        let submission = Submission(firstWord: firstWord!, secondWord: secondWord!, thirdWord: thirdWord!, story: self.storyTextView.text)
+
+        var data: NSData
+        if partOfExistingMatch() {
+            matchData!.append(submission)
+            data = NSKeyedArchiver.archivedDataWithRootObject(matchData!)
+        } else {
+            data = NSKeyedArchiver.archivedDataWithRootObject([submission])
+        }
+        match.endTurnWithNextParticipants([otherPlayer!, match.currentParticipant], turnTimeout: NSTimeInterval(oneWeek), matchData: data, completionHandler: endGKMatchTurn)
+    }
+
     @IBAction func createdDefinition(sender: UIBarButtonItem) {
         if partOfExistingMatch() {
-            //TODO(Yasumoto): Create a new turn.
+            if let match = currentMatch {
+                completeNewTurnInCurrentMatch(match)
+            } else {
+                println("We should have had a match to append to. Instead had \(currentMatch)")
+            }
         } else {
             var request: GKMatchRequest = GKMatchRequest()
             request.minPlayers = 2
@@ -80,51 +108,20 @@ class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewContr
     // MARK: - GKTurnBasedMatchmakerViewControllerDelegate
 
     func endGKMatchTurn(error: NSError!) {
-        println("We've finished ending the turn. NSError: \(error)")
-        if error == nil {
-            /*
-            let realm = RLMRealm(path: saveForLater)
-            realm.beginWriteTransaction()
-            let objects = RLMObject.objectsInRealm(realm, withPredicate: NSPredicate(format: "%K like %@", argumentArray: ["story", "\(story)"]))
-            print("Found and removing \(objects)")
-            realm.deleteObjects(objects)
-            realm.commitWriteTransaction()
-            */
-            self.navigationController?.popViewControllerAnimated(true)
+        println("We've finished ending the turn.")
+        if error != nil {
+            if error.code == GKErrorCode.TurnBasedInvalidTurn.rawValue {
+                println("Not the user's turn to play")
+            } else {
+                println("\(error)")
+            }
         }
+        self.navigationController?.popViewControllerAnimated(true)
     }
 
     func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController!, didFindMatch match: GKTurnBasedMatch!) {
         println("Found a match!")
-        var otherPlayer: GKTurnBasedParticipant? = nil
-        for item in match.participants {
-            if let player = item as? GKTurnBasedParticipant {
-                if player != match.currentParticipant {
-                    otherPlayer = player
-                }
-            }
-        }
-        let oneWeek = 60.0 * 60.0 * 24.0 * 7.0
-
-        let submission = Submission(firstWord: firstWord!, secondWord: secondWord!, thirdWord: thirdWord!, story: self.storyTextView.text)
-
-        /*
-        let realm = RLMRealm(path: saveForLater)
-        realm.beginWriteTransaction()
-        RLMObject.createOrUpdateInRealm(realm, withObject: submission)
-        print("Saving \(submission)")
-        realm.commitWriteTransaction()
-        */
-
-        var data: NSData
-        if partOfExistingMatch() {
-            matchData!.append(submission)
-            data = NSKeyedArchiver.archivedDataWithRootObject(matchData!)
-        } else {
-            data = NSKeyedArchiver.archivedDataWithRootObject([submission])
-        }
-        match.endTurnWithNextParticipants([otherPlayer!, match.currentParticipant], turnTimeout: NSTimeInterval(oneWeek), matchData: data, completionHandler: endGKMatchTurn)
-
+        completeNewTurnInCurrentMatch(match)
         viewController.dismissViewControllerAnimated(true, completion: nil)
     }
 
