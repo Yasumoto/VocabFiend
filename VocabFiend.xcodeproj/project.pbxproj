@@ -18,6 +18,10 @@
 		40A6742D1B61ED9800D1F469 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F0DE2E1AC7559E00C81E91 /* RLMSupport.swift */; };
 		40A6742E1B61EDA400D1F469 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F0DE301AC79D0A00C81E91 /* Realm.framework */; };
 		40C12EBA1B42424000D4B26F /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40C12EB91B42424000D4B26F /* Launch Screen.xib */; };
+		40C4414B1B62C69D001EAD17 /* TestSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C4414A1B62C69D001EAD17 /* TestSubmissionViewController.swift */; };
+		40C4414C1B62C6B6001EAD17 /* SubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C637901AB65B3A004CBF10 /* SubmissionViewController.swift */; };
+		40C4414D1B62C7A3001EAD17 /* Submission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6378D1AB65A71004CBF10 /* Submission.swift */; };
+		40C4414E1B62C7F4001EAD17 /* EntryDisplayPopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40920C391AC5E0E400735C27 /* EntryDisplayPopoverController.swift */; };
 		40C6376B1AB658FA004CBF10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6376A1AB658FA004CBF10 /* AppDelegate.swift */; };
 		40C6376D1AB658FA004CBF10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6376C1AB658FA004CBF10 /* ViewController.swift */; };
 		40C637701AB658FA004CBF10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C6376E1AB658FA004CBF10 /* Main.storyboard */; };
@@ -49,6 +53,7 @@
 		40920C3B1AC5E7A400735C27 /* FullStoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullStoryTableViewController.swift; sourceTree = "<group>"; };
 		40A6742A1B61ECC100D1F469 /* TestWordDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestWordDictionary.swift; sourceTree = "<group>"; };
 		40C12EB91B42424000D4B26F /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
+		40C4414A1B62C69D001EAD17 /* TestSubmissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSubmissionViewController.swift; sourceTree = "<group>"; };
 		40C637651AB658FA004CBF10 /* VocabFiend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VocabFiend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C637691AB658FA004CBF10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40C6376A1AB658FA004CBF10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +148,7 @@
 			children = (
 				40C637801AB658FA004CBF10 /* VocabFiendTests.swift */,
 				40A6742A1B61ECC100D1F469 /* TestWordDictionary.swift */,
+				40C4414A1B62C69D001EAD17 /* TestSubmissionViewController.swift */,
 				40C6377E1AB658FA004CBF10 /* Supporting Files */,
 			);
 			path = VocabFiendTests;
@@ -325,7 +331,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				40A6742D1B61ED9800D1F469 /* RLMSupport.swift in Sources */,
+				40C4414B1B62C69D001EAD17 /* TestSubmissionViewController.swift in Sources */,
+				40C4414C1B62C6B6001EAD17 /* SubmissionViewController.swift in Sources */,
+				40C4414D1B62C7A3001EAD17 /* Submission.swift in Sources */,
 				40A6742B1B61ECC100D1F469 /* TestWordDictionary.swift in Sources */,
+				40C4414E1B62C7F4001EAD17 /* EntryDisplayPopoverController.swift in Sources */,
 				40C637811AB658FA004CBF10 /* VocabFiendTests.swift in Sources */,
 				40A6742C1B61ED6E00D1F469 /* WordDictionary.swift in Sources */,
 			);

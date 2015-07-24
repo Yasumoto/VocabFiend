@@ -15,6 +15,7 @@ class FullStoryTableViewController: UITableViewController {
     var match: GKTurnBasedMatch?
     var submissions: [Submission]?
     let realm = RLMRealm.defaultRealm()
+    @IBOutlet weak var AddNewStoryEntryBarButtonItem: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,20 +28,30 @@ class FullStoryTableViewController: UITableViewController {
         for result in jimmeh {
             submissions?.append(result as! Submission)
         }
-        println("Loading matchData for \(match!.matchID)")
-        match!.loadMatchDataWithCompletionHandler(updateMatchData)
+        if let currentMatch = match {
+            println("Loading matchData for \(currentMatch.matchID)")
+            currentMatch.loadMatchDataWithCompletionHandler(updateMatchData)
+        }
     }
 
-func updateMatchData(matchData: NSData!, error: NSError!) -> Void {
+    func updateMatchData(matchData: NSData!, error: NSError!) -> Void {
         submissions = NSKeyedUnarchiver.unarchiveObjectWithData(matchData) as? [Submission]
         realm.beginWriteTransaction()
         realm.deleteAllObjects()
         for submission in submissions! {
             Submission.createOrUpdateInDefaultRealmWithObject(submission)
-
         }
         realm.commitWriteTransaction()
         self.tableView.reloadData()
+        if let currentMatch = match {
+            if currentMatch.currentParticipant.player != GKLocalPlayer.localPlayer() {
+                AddNewStoryEntryBarButtonItem.enabled = false
+            } else {
+                println("It is the user's turn now.")
+                AddNewStoryEntryBarButtonItem.enabled = true
+            }
+        }
+
         println("We found \(submissions!.count) submissions")
     }
 
@@ -85,6 +96,7 @@ func updateMatchData(matchData: NSData!, error: NSError!) -> Void {
             destinationController.story = submission.story
         } else if segue.identifier == "addEntry" {
             destinationController.matchData = submissions
+            destinationController.currentMatch = match
         }
     }
 
