@@ -8,7 +8,6 @@
 
 import Foundation
 import GameKit
-import Realm
 
 struct Match {
     var match : GKTurnBasedMatch
@@ -42,15 +41,17 @@ struct Player {
     }
 }
 
-func findMatches(successHandler: (matches: [Match]) -> ()) {
+func findMatches(successHandler: (matches: [Match]) -> (), noConnectionHandler: () -> ()) {
     GKTurnBasedMatch.loadMatchesWithCompletionHandler({ (objects : [AnyObject]!, error : NSError!) -> Void in
         var matches = [Match]()
-        if objects != nil {
-            for object in objects {
+        if let matchObjects = objects {
+            for object in matchObjects {
                 if let match = object as? GKTurnBasedMatch {
                     matches.append(Match(match: match))
                 }
             }
+        } else {
+            noConnectionHandler()
         }
         successHandler(matches: matches)
     })

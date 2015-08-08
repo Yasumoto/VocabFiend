@@ -116,14 +116,20 @@ class ViewController: UITableViewController, UITextViewDelegate {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
-    
+
+    func couldNotFindMatches() -> () {
+        print("Could not get any matches when attempting to load them")
+    }
+
+    func loadedMatches(matches: [Match]) -> () {
+        self.matches = matches
+        self.tableView.reloadData()
+        self.refreshGamesButton.enabled = true
+    }
+
     func loadMatches() {
         self.refreshGamesButton.enabled = false
-        findMatches({(matches: [Match]) -> () in
-            self.matches = matches
-            self.tableView.reloadData()
-            self.refreshGamesButton.enabled = true
-        })
+        findMatches(loadedMatches, couldNotFindMatches)
     }
     
     func playerLoggedIn(localPlayer : Player) {

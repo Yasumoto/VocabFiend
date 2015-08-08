@@ -8,7 +8,6 @@
 
 import UIKit
 import GameKit
-import Realm
 
 class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewControllerDelegate, UITextViewDelegate {
     @IBOutlet weak var firstEntry: UIButton!
