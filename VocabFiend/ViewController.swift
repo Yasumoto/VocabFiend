@@ -75,8 +75,12 @@ class ViewController: UITableViewController, UITextViewDelegate {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        
-        cell.textLabel!.text = "\(match.otherPlayer.player.alias)"
+
+        if let alias = match.otherPlayer.player.alias {
+            cell.textLabel!.text = "\(alias)"
+        } else {
+            cell.textLabel!.text = "No partner yet"
+        }
         // The goal here is to highlight anywhere that the current player is able to make this their turn.
         // In practice, there's likely a better way to do it.
         if match.currentTurnPlayer.player == localPlayer!.player {
