@@ -15,8 +15,8 @@ class EntryDisplayPopoverController: UIViewController {
     var entry: Entry?
 
     override func viewDidLoad() {
-        wordLabel.text = entry!.word
-        partOfSpeechLabel.text = entry!.partOfSpeech
-        definitionLabel.text = entry!.definition
+        wordLabel.text = String(entry!.word)
+        partOfSpeechLabel.text = String(entry!.partOfSpeech)
+        definitionLabel.text = String(entry!.definition)
     }
 }

@@ -10,27 +10,21 @@
 		4008156B1B1AC40200F216CD /* TurnManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008156A1B1AC40200F216CD /* TurnManager.swift */; };
 		4023D99C1AC7BFBA00AA8F6B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4023D99A1AC7BFBA00AA8F6B /* Crashlytics.framework */; };
 		4023D99D1AC7BFBA00AA8F6B /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4023D99B1AC7BFBA00AA8F6B /* Fabric.framework */; };
+		4045C5C91B79A1F800D4FB56 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4045C5C81B79A1F800D4FB56 /* RLMSupport.swift */; };
+		406865701B79890600068EF5 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4068656F1B79890600068EF5 /* RealmSwift.framework */; };
+		406865721B798EA300068EF5 /* Submission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6378D1AB65A71004CBF10 /* Submission.swift */; };
 		407698DD1AB669630092E192 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407698DC1AB669630092E192 /* GameKit.framework */; };
 		40920C3A1AC5E0E400735C27 /* EntryDisplayPopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40920C391AC5E0E400735C27 /* EntryDisplayPopoverController.swift */; };
 		40920C3C1AC5E7A400735C27 /* FullStoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40920C3B1AC5E7A400735C27 /* FullStoryTableViewController.swift */; };
 		40A6742B1B61ECC100D1F469 /* TestWordDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A6742A1B61ECC100D1F469 /* TestWordDictionary.swift */; };
-		40A6742C1B61ED6E00D1F469 /* WordDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C637921AB65D99004CBF10 /* WordDictionary.swift */; };
-		40A6742D1B61ED9800D1F469 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F0DE2E1AC7559E00C81E91 /* RLMSupport.swift */; };
-		40A6742E1B61EDA400D1F469 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F0DE301AC79D0A00C81E91 /* Realm.framework */; };
 		40C12EBA1B42424000D4B26F /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40C12EB91B42424000D4B26F /* Launch Screen.xib */; };
 		40C4414B1B62C69D001EAD17 /* TestSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C4414A1B62C69D001EAD17 /* TestSubmissionViewController.swift */; };
-		40C4414C1B62C6B6001EAD17 /* SubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C637901AB65B3A004CBF10 /* SubmissionViewController.swift */; };
-		40C4414D1B62C7A3001EAD17 /* Submission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6378D1AB65A71004CBF10 /* Submission.swift */; };
-		40C4414E1B62C7F4001EAD17 /* EntryDisplayPopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40920C391AC5E0E400735C27 /* EntryDisplayPopoverController.swift */; };
 		40C6376B1AB658FA004CBF10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6376A1AB658FA004CBF10 /* AppDelegate.swift */; };
 		40C6376D1AB658FA004CBF10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6376C1AB658FA004CBF10 /* ViewController.swift */; };
 		40C637701AB658FA004CBF10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C6376E1AB658FA004CBF10 /* Main.storyboard */; };
 		40C637721AB658FA004CBF10 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C637711AB658FA004CBF10 /* Images.xcassets */; };
-		40C637811AB658FA004CBF10 /* VocabFiendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C637801AB658FA004CBF10 /* VocabFiendTests.swift */; };
-		40C6378F1AB65A71004CBF10 /* Submission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6378D1AB65A71004CBF10 /* Submission.swift */; };
 		40C637911AB65B3A004CBF10 /* SubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C637901AB65B3A004CBF10 /* SubmissionViewController.swift */; };
 		40C637931AB65D99004CBF10 /* WordDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C637921AB65D99004CBF10 /* WordDictionary.swift */; };
-		40F0DE2F1AC7559E00C81E91 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F0DE2E1AC7559E00C81E91 /* RLMSupport.swift */; };
 		40F0DE311AC79D0A00C81E91 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F0DE301AC79D0A00C81E91 /* Realm.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +42,8 @@
 		4008156A1B1AC40200F216CD /* TurnManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnManager.swift; sourceTree = "<group>"; };
 		4023D99A1AC7BFBA00AA8F6B /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		4023D99B1AC7BFBA00AA8F6B /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
+		4045C5C81B79A1F800D4FB56 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
+		4068656F1B79890600068EF5 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = SOURCE_ROOT; };
 		407698DC1AB669630092E192 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		40920C391AC5E0E400735C27 /* EntryDisplayPopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDisplayPopoverController.swift; sourceTree = "<group>"; };
 		40920C3B1AC5E7A400735C27 /* FullStoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullStoryTableViewController.swift; sourceTree = "<group>"; };
@@ -62,11 +58,9 @@
 		40C637711AB658FA004CBF10 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		40C6377A1AB658FA004CBF10 /* VocabFiendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VocabFiendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C6377F1AB658FA004CBF10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		40C637801AB658FA004CBF10 /* VocabFiendTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabFiendTests.swift; sourceTree = "<group>"; };
 		40C6378D1AB65A71004CBF10 /* Submission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Submission.swift; sourceTree = "<group>"; };
 		40C637901AB65B3A004CBF10 /* SubmissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmissionViewController.swift; sourceTree = "<group>"; };
 		40C637921AB65D99004CBF10 /* WordDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDictionary.swift; sourceTree = "<group>"; };
-		40F0DE2E1AC7559E00C81E91 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		40F0DE301AC79D0A00C81E91 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +70,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40F0DE311AC79D0A00C81E91 /* Realm.framework in Frameworks */,
+				406865701B79890600068EF5 /* RealmSwift.framework in Frameworks */,
 				4023D99C1AC7BFBA00AA8F6B /* Crashlytics.framework in Frameworks */,
 				407698DD1AB669630092E192 /* GameKit.framework in Frameworks */,
 				4023D99D1AC7BFBA00AA8F6B /* Fabric.framework in Frameworks */,
@@ -86,7 +81,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40A6742E1B61EDA400D1F469 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +118,7 @@
 				40C637711AB658FA004CBF10 /* Images.xcassets */,
 				40C6378D1AB65A71004CBF10 /* Submission.swift */,
 				40C637921AB65D99004CBF10 /* WordDictionary.swift */,
-				40F0DE2E1AC7559E00C81E91 /* RLMSupport.swift */,
+				4045C5C81B79A1F800D4FB56 /* RLMSupport.swift */,
 				40C12EB91B42424000D4B26F /* Launch Screen.xib */,
 				40C637681AB658FA004CBF10 /* Supporting Files */,
 			);
@@ -137,6 +131,7 @@
 				4023D99A1AC7BFBA00AA8F6B /* Crashlytics.framework */,
 				4023D99B1AC7BFBA00AA8F6B /* Fabric.framework */,
 				40F0DE301AC79D0A00C81E91 /* Realm.framework */,
+				4068656F1B79890600068EF5 /* RealmSwift.framework */,
 				407698DC1AB669630092E192 /* GameKit.framework */,
 				40C637691AB658FA004CBF10 /* Info.plist */,
 			);
@@ -146,7 +141,6 @@
 		40C6377D1AB658FA004CBF10 /* VocabFiendTests */ = {
 			isa = PBXGroup;
 			children = (
-				40C637801AB658FA004CBF10 /* VocabFiendTests.swift */,
 				40A6742A1B61ECC100D1F469 /* TestWordDictionary.swift */,
 				40C4414A1B62C69D001EAD17 /* TestSubmissionViewController.swift */,
 				40C6377E1AB658FA004CBF10 /* Supporting Files */,
@@ -209,7 +203,8 @@
 		40C6375D1AB658FA004CBF10 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				CLASSPREFIX = "";
+				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = bjoli;
 				TargetAttributes = {
 					40C637641AB658FA004CBF10 = {
@@ -300,6 +295,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			outputPaths = (
 			);
@@ -315,14 +311,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				40920C3C1AC5E7A400735C27 /* FullStoryTableViewController.swift in Sources */,
+				4045C5C91B79A1F800D4FB56 /* RLMSupport.swift in Sources */,
 				40C6376D1AB658FA004CBF10 /* ViewController.swift in Sources */,
 				40C637911AB65B3A004CBF10 /* SubmissionViewController.swift in Sources */,
 				4008156B1B1AC40200F216CD /* TurnManager.swift in Sources */,
-				40F0DE2F1AC7559E00C81E91 /* RLMSupport.swift in Sources */,
 				40C6376B1AB658FA004CBF10 /* AppDelegate.swift in Sources */,
-				40C6378F1AB65A71004CBF10 /* Submission.swift in Sources */,
 				40920C3A1AC5E0E400735C27 /* EntryDisplayPopoverController.swift in Sources */,
 				40C637931AB65D99004CBF10 /* WordDictionary.swift in Sources */,
+				406865721B798EA300068EF5 /* Submission.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,14 +326,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40A6742D1B61ED9800D1F469 /* RLMSupport.swift in Sources */,
 				40C4414B1B62C69D001EAD17 /* TestSubmissionViewController.swift in Sources */,
-				40C4414C1B62C6B6001EAD17 /* SubmissionViewController.swift in Sources */,
-				40C4414D1B62C7A3001EAD17 /* Submission.swift in Sources */,
 				40A6742B1B61ECC100D1F469 /* TestWordDictionary.swift in Sources */,
-				40C4414E1B62C7F4001EAD17 /* EntryDisplayPopoverController.swift in Sources */,
-				40C637811AB658FA004CBF10 /* VocabFiendTests.swift in Sources */,
-				40A6742C1B61ED6E00D1F469 /* WordDictionary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +370,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -399,7 +390,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -424,7 +415,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -437,7 +429,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -498,7 +490,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = VocabFiendTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VocabFiend.app/VocabFiend";
@@ -515,7 +507,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = VocabFiendTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VocabFiend.app/VocabFiend";

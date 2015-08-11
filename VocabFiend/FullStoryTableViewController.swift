@@ -9,6 +9,7 @@
 import GameKit
 import UIKit
 import Realm
+import RealmSwift
 
 class FullStoryTableViewController: UITableViewController {
 
