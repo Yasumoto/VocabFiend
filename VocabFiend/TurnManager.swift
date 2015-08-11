@@ -15,8 +15,7 @@ struct Match {
         get {
             if let currentPlayer = match.currentParticipant.player {
                 return Player(player: match.currentParticipant.player)
-            }
-            else {
+            } else {
                 let participant = match.participants.first as! GKTurnBasedParticipant
                 return Player(player: participant.player)
             }
@@ -24,7 +23,17 @@ struct Match {
     }
     var otherPlayer : Player {
         get {
-            return Player(player: match.participants[0].player as GKPlayer)
+            var second = GKPlayer()
+            for participant in match.participants {
+                if let participant = participant as? GKTurnBasedParticipant {
+                    if let otherPlayer: GKPlayer = participant.player {
+                        if otherPlayer != GKLocalPlayer.localPlayer() {
+                            second = otherPlayer
+                        }
+                    }
+                }
+            }
+            return Player(player: second)
         }
     }
 }

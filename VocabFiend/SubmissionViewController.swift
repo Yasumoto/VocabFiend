@@ -84,6 +84,17 @@ public class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerVi
         match.endTurnWithNextParticipants([otherPlayer!, match.currentParticipant], turnTimeout: NSTimeInterval(oneWeek), matchData: data, completionHandler: endGKMatchTurn)
     }
 
+    func createNewMatch() {
+        var request: GKMatchRequest = GKMatchRequest()
+        request.minPlayers = 2
+        request.maxPlayers = 2
+
+        var mmvc: GKTurnBasedMatchmakerViewController = GKTurnBasedMatchmakerViewController.init(matchRequest: request);
+        mmvc.showExistingMatches = false
+        mmvc.turnBasedMatchmakerDelegate = self;
+        self.presentViewController(mmvc, animated:true, completion:nil)
+    }
+
     @IBAction func createdDefinition(sender: UIBarButtonItem) {
         if partOfExistingMatch() {
             if let match = currentMatch {
@@ -92,14 +103,7 @@ public class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerVi
                 println("We should have had a match to append to. Instead had \(currentMatch)")
             }
         } else {
-            var request: GKMatchRequest = GKMatchRequest()
-            request.minPlayers = 2
-            request.maxPlayers = 2
-
-            var mmvc: GKTurnBasedMatchmakerViewController = GKTurnBasedMatchmakerViewController.init(matchRequest: request);
-            mmvc.showExistingMatches = false
-            mmvc.turnBasedMatchmakerDelegate = self;
-            self.presentViewController(mmvc, animated:true, completion:nil)
+            createNewMatch()
         }
 
         println("Story written: \(storyTextView.text)")
@@ -132,7 +136,7 @@ public class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerVi
     }
 
     public func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController!, didFailWithError error: NSError!) {
-        println("FAILURE: \(error)")
+        println("GK match creation failure: \(error)")
         viewController.dismissViewControllerAnimated(true, completion: nil)
     }
 
