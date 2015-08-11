@@ -6,9 +6,11 @@
 //  Copyright (c) 2015 bjoli. All rights reserved.
 //
 
-import UIKit
-import Fabric
 import Crashlytics
+import Fabric
+import Realm
+import RealmSwift
+import UIKit
 
 
 @UIApplicationMain
@@ -21,6 +23,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         Fabric.with([Crashlytics()])
+        setSchemaVersion(2, Realm.defaultPath, { migration, oldSchemaVersion in
+            if oldSchemaVersion < 2 {
+                migration.enumerate(Entry.className()) { oldEntry, newEntry in
+                    let word = oldEntry!["word"] as! String
+                    let partOfSpeech = oldEntry!["partOfSpeech"] as! String
+                    let definition = oldEntry!["definition"] as! String
+                    newEntry!["word"] = "\(word)"
+                    newEntry!["partOfSpeech"] = "\(partOfSpeech)"
+                    newEntry!["definition"] = "\(definition)"
+                }
+            }
+        })
 
         return true
     }
