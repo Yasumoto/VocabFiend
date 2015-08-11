@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+import VocabFiend
 
 class TestWordDictionary: XCTestCase {
     func testGetRandomIndex() {

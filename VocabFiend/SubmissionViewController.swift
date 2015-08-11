@@ -8,9 +8,8 @@
 
 import UIKit
 import GameKit
-import Realm
 
-class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewControllerDelegate, UITextViewDelegate {
+public class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewControllerDelegate, UITextViewDelegate {
     @IBOutlet weak var firstEntry: UIButton!
     @IBOutlet weak var secondEntry: UIButton!
     @IBOutlet weak var thirdEntry: UIButton!
@@ -21,16 +20,16 @@ class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewContr
     var secondWord: Entry?
     var thirdWord: Entry?
     var story: String?
-    var matchData: [Submission]?
+    public var matchData: [Submission]?
     var currentMatch: GKTurnBasedMatch?
     
-    func partOfExistingMatch() -> Bool {
+    public func partOfExistingMatch() -> Bool {
         return matchData != nil
     }
 
     let saveForLater = "\(NSBundle.mainBundle().resourcePath!)/ToSubmitSoon"
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         storyTextView.delegate = self
 
@@ -45,12 +44,12 @@ class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewContr
             self.storyTextView.editable = false
             self.navigationItem.rightBarButtonItem = nil
         }
-        firstEntry.setTitle(firstWord!.word, forState: UIControlState.Normal)
-        secondEntry.setTitle(secondWord!.word, forState: UIControlState.Normal)
-        thirdEntry.setTitle(thirdWord!.word, forState:UIControlState.Normal)
+        firstEntry.setTitle(String(firstWord!.word), forState: UIControlState.Normal)
+        secondEntry.setTitle(String(secondWord!.word), forState: UIControlState.Normal)
+        thirdEntry.setTitle(String(thirdWord!.word), forState:UIControlState.Normal)
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    public override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let entryDisplay = segue.destinationViewController as! EntryDisplayPopoverController
         let word = sender as! UIButton
         if segue.identifier == "wordOne" {
@@ -98,6 +97,7 @@ class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewContr
             request.maxPlayers = 2
 
             var mmvc: GKTurnBasedMatchmakerViewController = GKTurnBasedMatchmakerViewController.init(matchRequest: request);
+            mmvc.showExistingMatches = false
             mmvc.turnBasedMatchmakerDelegate = self;
             self.presentViewController(mmvc, animated:true, completion:nil)
         }
@@ -119,24 +119,24 @@ class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewContr
         self.navigationController?.popViewControllerAnimated(true)
     }
 
-    func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController!, didFindMatch match: GKTurnBasedMatch!) {
+    public func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController!, didFindMatch match: GKTurnBasedMatch!) {
         println("Found a match!")
         completeNewTurnInCurrentMatch(match)
         viewController.dismissViewControllerAnimated(true, completion: nil)
     }
 
-    func turnBasedMatchmakerViewControllerWasCancelled(viewController: GKTurnBasedMatchmakerViewController!) {
+    public func turnBasedMatchmakerViewControllerWasCancelled(viewController: GKTurnBasedMatchmakerViewController!) {
         println("GK controller was cancelled.")
         viewController.dismissViewControllerAnimated(true, completion: nil)
 
     }
 
-    func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController!, didFailWithError error: NSError!) {
+    public func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController!, didFailWithError error: NSError!) {
         println("FAILURE: \(error)")
         viewController.dismissViewControllerAnimated(true, completion: nil)
     }
 
-    func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController!, playerQuitForMatch match: GKTurnBasedMatch!) {
+    public func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController!, playerQuitForMatch match: GKTurnBasedMatch!) {
         println("Welp. we had someone quit match)")
         viewController.dismissViewControllerAnimated(true, completion: nil)
 
@@ -144,12 +144,12 @@ class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerViewContr
 
     // MARK: - Text View Delegate
 
-    func textViewShouldEndEditing(textView: UITextView) -> Bool {
+    public func textViewShouldEndEditing(textView: UITextView) -> Bool {
         storyTextView.resignFirstResponder()
         return true
     }
 
-    func textViewDidBeginEditing(textView: UITextView) {
+    public func textViewDidBeginEditing(textView: UITextView) {
         if textView.text == "Enter your wonderful story here!" {
             textView.text = ""
         }

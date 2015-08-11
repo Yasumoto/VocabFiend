@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+import VocabFiend
 
 class TestSubmissionViewController: XCTestCase {
     var testController: SubmissionViewController?

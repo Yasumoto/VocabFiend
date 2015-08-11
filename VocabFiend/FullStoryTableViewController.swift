@@ -9,6 +9,7 @@
 import GameKit
 import UIKit
 import Realm
+import RealmSwift
 
 class FullStoryTableViewController: UITableViewController {
 
@@ -39,7 +40,7 @@ class FullStoryTableViewController: UITableViewController {
         realm.beginWriteTransaction()
         realm.deleteAllObjects()
         for submission in submissions! {
-            Submission.createOrUpdateInDefaultRealmWithObject(submission)
+            Submission.createOrUpdateInDefaultRealmWithValue(submission)
         }
         realm.commitWriteTransaction()
         self.tableView.reloadData()

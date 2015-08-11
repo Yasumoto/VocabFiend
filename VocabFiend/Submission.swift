@@ -9,24 +9,24 @@
 import Foundation
 import Realm
 
-class Submission: RLMObject, NSCoding {
+public class Submission: RLMObject, NSCoding {
     var firstWord: Entry?
     var secondWord: Entry?
     var thirdWord: Entry?
     var story: String = ""
     
-    override class func primaryKey() -> String {
+    override public class func primaryKey() -> String {
         return "story"
     }
 
-    func encodeWithCoder(coder: NSCoder) {
+    public func encodeWithCoder(coder: NSCoder) {
         coder.encodeObject(story, forKey: "story")
         coder.encodeObject(firstWord!, forKey: "firstWord")
         coder.encodeObject(secondWord!, forKey: "secondWord")
         coder.encodeObject(thirdWord!, forKey: "thirdWord")
     }
 
-    required convenience init(coder decoder: NSCoder) {
+    required convenience public init(coder decoder: NSCoder) {
         self.init()
         self.story = decoder.decodeObjectForKey("story") as! String
         self.firstWord = decoder.decodeObjectForKey("firstWord") as? Entry
@@ -34,7 +34,7 @@ class Submission: RLMObject, NSCoding {
         self.thirdWord = decoder.decodeObjectForKey("thirdWord") as? Entry
     }
 
-    convenience init(firstWord: Entry, secondWord: Entry, thirdWord: Entry, story: String) {
+    convenience public init(firstWord: Entry, secondWord: Entry, thirdWord: Entry, story: String) {
         self.init()
         self.story = story
         self.firstWord = firstWord

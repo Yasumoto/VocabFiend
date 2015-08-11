@@ -72,7 +72,6 @@ class ViewController: UITableViewController, UITextViewDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
         
         let match = matches[indexPath.row]
-        let participant = match.currentTurnPlayer
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
@@ -80,11 +79,11 @@ class ViewController: UITableViewController, UITextViewDelegate {
         cell.textLabel!.text = "\(match.otherPlayer.player.alias)"
         // The goal here is to highlight anywhere that the current player is able to make this their turn.
         // In practice, there's likely a better way to do it.
-        if participant.player.playerID == localPlayer?.player.playerID {
-            cell.textLabel!.textColor = UIColor.grayColor()
+        if match.currentTurnPlayer.player == localPlayer!.player {
+            cell.textLabel!.textColor = UIColor.darkGrayColor()
         }
         else {
-            cell.textLabel!.textColor = UIColor.darkGrayColor()
+            cell.textLabel!.textColor = UIColor.lightGrayColor()
 
         }
         cell.detailTextLabel!.text = "\(dateFormatter.stringFromDate(match.match.creationDate))"
@@ -117,14 +116,20 @@ class ViewController: UITableViewController, UITextViewDelegate {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
-    
+
+    func couldNotFindMatches() -> () {
+        print("Could not get any matches when attempting to load them")
+    }
+
+    func loadedMatches(matches: [Match]) -> () {
+        self.matches = matches
+        self.tableView.reloadData()
+        self.refreshGamesButton.enabled = true
+    }
+
     func loadMatches() {
         self.refreshGamesButton.enabled = false
-        findMatches({(matches: [Match]) -> () in
-            self.matches = matches
-            self.tableView.reloadData()
-            self.refreshGamesButton.enabled = true
-        })
+        findMatches(loadedMatches, couldNotFindMatches)
     }
     
     func playerLoggedIn(localPlayer : Player) {

@@ -9,25 +9,25 @@
 import Foundation
 import Realm
 
-class Entry: RLMObject, NSCoding {
-    var word : String?
-    var partOfSpeech : String?
-    var definition : String?
+public class Entry: RLMObject, NSCoding {
+    var word = ""
+    var partOfSpeech = ""
+    var definition = ""
 
-    func encodeWithCoder(aCoder: NSCoder){
+    public func encodeWithCoder(aCoder: NSCoder){
         aCoder.encodeObject(word, forKey: "word")
         aCoder.encodeObject(partOfSpeech, forKey: "partOfSpeech")
         aCoder.encodeObject(definition, forKey: "definition")
     }
 
-    required convenience init(coder aDecoder: NSCoder) {
+    public required convenience init(coder aDecoder: NSCoder) {
         self.init()
-        self.word = aDecoder.decodeObjectForKey("word") as? String
-        self.partOfSpeech = aDecoder.decodeObjectForKey("partOfSpeech") as? String
-        self.definition = aDecoder.decodeObjectForKey("definition") as? String
+        self.word = aDecoder.decodeObjectForKey("word") as! String
+        self.partOfSpeech = aDecoder.decodeObjectForKey("partOfSpeech") as! String
+        self.definition = aDecoder.decodeObjectForKey("definition") as! String
     }
 
-    convenience init(word: String, partOfSpeech: String, definition: String) {
+    public convenience init(word: String, partOfSpeech: String, definition: String) {
         self.init()
         self.word = word
         self.partOfSpeech = partOfSpeech
@@ -35,13 +35,13 @@ class Entry: RLMObject, NSCoding {
     }
 }
 
-func getRandomIndex() -> Int {
+public func getRandomIndex() -> Int {
     let sizeOfOptions = UInt32(wordList.count)
     let generatedIndex = Int(arc4random_uniform(sizeOfOptions))
     return generatedIndex
 }
 
-func pickEntries(requestedEntries: Int) -> Set<Entry> {
+public func pickEntries(requestedEntries: Int) -> Set<Entry> {
     var entries = Set<Entry>(minimumCapacity: requestedEntries)
 
     while (entries.count != requestedEntries) {
