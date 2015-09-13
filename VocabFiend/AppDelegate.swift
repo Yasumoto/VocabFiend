@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         Fabric.with([Crashlytics()])
-        setSchemaVersion(2, Realm.defaultPath, { migration, oldSchemaVersion in
+        setSchemaVersion(2, realmPath: Realm.defaultPath, migrationBlock: { migration, oldSchemaVersion in
             if oldSchemaVersion < 2 {
                 migration.enumerate(Entry.className()) { oldEntry, newEntry in
                     let word = oldEntry!["word"] as! String

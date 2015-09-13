@@ -29,7 +29,7 @@ class ViewController: UITableViewController, UITextViewDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        if let player = localPlayer {
+        if let _ = localPlayer {
             loadMatches()
         }
     }
@@ -54,7 +54,7 @@ class ViewController: UITableViewController, UITextViewDelegate {
             let index = self.tableView.indexPathForCell(cell)?.row
             guessingController.match = matches[index!].match
         } else if segue.identifier == "newMatch" {
-            let submissionController = segue.destinationViewController as! SubmissionViewController
+            _ = segue.destinationViewController as! SubmissionViewController
         }
     }
     
@@ -90,7 +90,7 @@ class ViewController: UITableViewController, UITextViewDelegate {
             cell.textLabel!.textColor = UIColor.lightGrayColor()
 
         }
-        cell.detailTextLabel!.text = "\(dateFormatter.stringFromDate(match.match.creationDate))"
+        cell.detailTextLabel!.text = "\(dateFormatter.stringFromDate(match.match.creationDate!))"
         return cell
     }
     
@@ -99,7 +99,7 @@ class ViewController: UITableViewController, UITextViewDelegate {
         return true
     }
     
-    func matchWasDeleted(error: NSError!) -> Void {
+    func matchWasDeleted(error: NSError?) -> Void {
         print("match deleted with error: \(error)")
     
     }
@@ -142,8 +142,8 @@ class ViewController: UITableViewController, UITextViewDelegate {
         loadMatches()
     }
     
-    func authenticationHandler(viewController : UIViewController!, error: NSError!) -> Void {
-        if viewController != nil {
+    func authenticationHandler(viewController : UIViewController?, error: NSError?) -> Void {
+        if let viewController = viewController {
             //showAuthenticationDialogWhenReasonable: is an example method name. Create your own method that displays an authentication view when appropriate for your app.
             print("We're going to try to auth here.")
             self.presentViewController(viewController, animated:true, completion:nil)

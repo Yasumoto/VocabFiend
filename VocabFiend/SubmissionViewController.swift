@@ -51,7 +51,6 @@ public class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerVi
 
     public override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let entryDisplay = segue.destinationViewController as! EntryDisplayPopoverController
-        let word = sender as! UIButton
         if segue.identifier == "wordOne" {
             entryDisplay.entry = firstWord
         } else if segue.identifier == "wordTwo" {
@@ -63,11 +62,9 @@ public class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerVi
 
     func completeNewTurnInCurrentMatch(match: GKTurnBasedMatch) {
         var otherPlayer: GKTurnBasedParticipant? = nil
-        for item in match.participants {
-            if let player = item as? GKTurnBasedParticipant {
-                if player != match.currentParticipant {
-                    otherPlayer = player
-                }
+        for player in match.participants! {
+            if player != match.currentParticipant {
+                otherPlayer = player
             }
         }
         let oneWeek = 60.0 * 60.0 * 24.0 * 7.0
@@ -81,7 +78,7 @@ public class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerVi
         } else {
             data = NSKeyedArchiver.archivedDataWithRootObject([submission])
         }
-        match.endTurnWithNextParticipants([otherPlayer!, match.currentParticipant], turnTimeout: NSTimeInterval(oneWeek), matchData: data, completionHandler: endGKMatchTurn)
+        match.endTurnWithNextParticipants([otherPlayer!, match.currentParticipant!], turnTimeout: NSTimeInterval(oneWeek), matchData: data, completionHandler: endGKMatchTurn)
     }
 
     func createNewMatch() {
@@ -111,9 +108,9 @@ public class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerVi
 
     // MARK: - GKTurnBasedMatchmakerViewControllerDelegate
 
-    func endGKMatchTurn(error: NSError!) {
+    func endGKMatchTurn(error: NSError?) {
         print("We've finished ending the turn.")
-        if error != nil {
+        if let error = error {
             if error.code == GKErrorCode.TurnBasedInvalidTurn.rawValue {
                 print("Not the user's turn to play")
             } else {

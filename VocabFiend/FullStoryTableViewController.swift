@@ -35,25 +35,27 @@ class FullStoryTableViewController: UITableViewController {
         }
     }
 
-    func updateMatchData(matchData: NSData!, error: NSError!) -> Void {
-        submissions = NSKeyedUnarchiver.unarchiveObjectWithData(matchData) as? [Submission]
-        realm.beginWriteTransaction()
-        realm.deleteAllObjects()
-        for submission in submissions! {
-            Submission.createOrUpdateInDefaultRealmWithValue(submission)
-        }
-        realm.commitWriteTransaction()
-        self.tableView.reloadData()
-        if let currentMatch = match {
-            if currentMatch.currentParticipant.player != GKLocalPlayer.localPlayer() {
-                AddNewStoryEntryBarButtonItem.enabled = false
-            } else {
-                print("It is the user's turn now.")
-                AddNewStoryEntryBarButtonItem.enabled = true
+    func updateMatchData(matchData: NSData?, error: NSError?) -> Void {
+        if let data = matchData {
+            submissions = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [Submission]
+            realm.beginWriteTransaction()
+            realm.deleteAllObjects()
+            for submission in submissions! {
+                Submission.createOrUpdateInDefaultRealmWithValue(submission)
             }
-        }
+            realm.commitWriteTransaction()
+            self.tableView.reloadData()
+            if let currentMatch = match {
+                if currentMatch.currentParticipant?.player != GKLocalPlayer.localPlayer() {
+                    AddNewStoryEntryBarButtonItem.enabled = false
+                } else {
+                    print("It is the user's turn now.")
+                    AddNewStoryEntryBarButtonItem.enabled = true
+                }
+            }
 
-        print("We found \(submissions!.count) submissions")
+            print("We found \(submissions!.count) submissions")
+        }
     }
 
     override func didReceiveMemoryWarning() {
