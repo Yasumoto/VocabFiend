@@ -51,7 +51,7 @@ struct Player {
 }
 
 func findMatches(successHandler: (matches: [Match]) -> (), noConnectionHandler: () -> ()) {
-    GKTurnBasedMatch.loadMatchesWithCompletionHandler({ (objects : [AnyObject]!, error : NSError!) -> Void in
+    GKTurnBasedMatch.loadMatchesWithCompletionHandler({ (objects : [GKTurnBasedMatch]?, error : NSError?) -> Void in
         var matches = [Match]()
         if let matchObjects = objects {
             for object in matchObjects {
@@ -69,6 +69,6 @@ func findMatches(successHandler: (matches: [Match]) -> (), noConnectionHandler: 
 func authenticateLocalPlayer(handler: (UIViewController!, NSError!) -> Void) -> Player {
     let localPlayer = GKLocalPlayer.localPlayer()
     localPlayer.authenticateHandler = handler
-    println("Attempting to authenticate: \(localPlayer)")
+    print("Attempting to authenticate: \(localPlayer)")
     return Player(player: localPlayer)
 }

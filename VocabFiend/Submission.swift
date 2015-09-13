@@ -26,7 +26,7 @@ public class Submission: RLMObject, NSCoding {
         coder.encodeObject(thirdWord!, forKey: "thirdWord")
     }
 
-    required convenience public init(coder decoder: NSCoder) {
+    required convenience public init?(coder decoder: NSCoder) {
         self.init()
         self.story = decoder.decodeObjectForKey("story") as! String
         self.firstWord = decoder.decodeObjectForKey("firstWord") as? Entry

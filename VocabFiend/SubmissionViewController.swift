@@ -85,11 +85,11 @@ public class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerVi
     }
 
     func createNewMatch() {
-        var request: GKMatchRequest = GKMatchRequest()
+        let request: GKMatchRequest = GKMatchRequest()
         request.minPlayers = 2
         request.maxPlayers = 2
 
-        var mmvc: GKTurnBasedMatchmakerViewController = GKTurnBasedMatchmakerViewController.init(matchRequest: request);
+        let mmvc: GKTurnBasedMatchmakerViewController = GKTurnBasedMatchmakerViewController.init(matchRequest: request);
         mmvc.showExistingMatches = false
         mmvc.turnBasedMatchmakerDelegate = self;
         self.presentViewController(mmvc, animated:true, completion:nil)
@@ -100,48 +100,48 @@ public class SubmissionViewController: UIViewController, GKTurnBasedMatchmakerVi
             if let match = currentMatch {
                 completeNewTurnInCurrentMatch(match)
             } else {
-                println("We should have had a match to append to. Instead had \(currentMatch)")
+                print("We should have had a match to append to. Instead had \(currentMatch)")
             }
         } else {
             createNewMatch()
         }
 
-        println("Story written: \(storyTextView.text)")
+        print("Story written: \(storyTextView.text)")
     }
 
     // MARK: - GKTurnBasedMatchmakerViewControllerDelegate
 
     func endGKMatchTurn(error: NSError!) {
-        println("We've finished ending the turn.")
+        print("We've finished ending the turn.")
         if error != nil {
             if error.code == GKErrorCode.TurnBasedInvalidTurn.rawValue {
-                println("Not the user's turn to play")
+                print("Not the user's turn to play")
             } else {
-                println("\(error)")
+                print("\(error)")
             }
         }
         self.navigationController?.popViewControllerAnimated(true)
     }
 
-    public func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController!, didFindMatch match: GKTurnBasedMatch!) {
-        println("Found a match!")
+    public func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController, didFindMatch match: GKTurnBasedMatch) {
+        print("Found a match!")
         completeNewTurnInCurrentMatch(match)
         viewController.dismissViewControllerAnimated(true, completion: nil)
     }
 
-    public func turnBasedMatchmakerViewControllerWasCancelled(viewController: GKTurnBasedMatchmakerViewController!) {
-        println("GK controller was cancelled.")
+    public func turnBasedMatchmakerViewControllerWasCancelled(viewController: GKTurnBasedMatchmakerViewController) {
+        print("GK controller was cancelled.")
         viewController.dismissViewControllerAnimated(true, completion: nil)
 
     }
 
-    public func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController!, didFailWithError error: NSError!) {
-        println("GK match creation failure: \(error)")
+    public func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController, didFailWithError error: NSError) {
+        print("GK match creation failure: \(error)")
         viewController.dismissViewControllerAnimated(true, completion: nil)
     }
 
-    public func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController!, playerQuitForMatch match: GKTurnBasedMatch!) {
-        println("Welp. we had someone quit match)")
+    public func turnBasedMatchmakerViewController(viewController: GKTurnBasedMatchmakerViewController, playerQuitForMatch match: GKTurnBasedMatch) {
+        print("Welp. we had someone quit match)")
         viewController.dismissViewControllerAnimated(true, completion: nil)
 
     }

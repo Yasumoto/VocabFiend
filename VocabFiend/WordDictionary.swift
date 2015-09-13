@@ -20,7 +20,7 @@ public class Entry: RLMObject, NSCoding {
         aCoder.encodeObject(definition, forKey: "definition")
     }
 
-    public required convenience init(coder aDecoder: NSCoder) {
+    public required convenience init?(coder aDecoder: NSCoder) {
         self.init()
         self.word = aDecoder.decodeObjectForKey("word") as! String
         self.partOfSpeech = aDecoder.decodeObjectForKey("partOfSpeech") as! String

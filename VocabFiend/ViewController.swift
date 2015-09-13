@@ -69,7 +69,7 @@ class ViewController: UITableViewController, UITextViewDelegate {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) 
         
         let match = matches[indexPath.row]
         let dateFormatter = NSDateFormatter()
@@ -100,7 +100,7 @@ class ViewController: UITableViewController, UITextViewDelegate {
     }
     
     func matchWasDeleted(error: NSError!) -> Void {
-        println("match deleted with error: \(error)")
+        print("match deleted with error: \(error)")
     
     }
     
@@ -122,7 +122,7 @@ class ViewController: UITableViewController, UITextViewDelegate {
     }
 
     func couldNotFindMatches() -> () {
-        print("Could not get any matches when attempting to load them")
+        print("Could not get any matches when attempting to load them", terminator: "")
     }
 
     func loadedMatches(matches: [Match]) -> () {
@@ -133,11 +133,11 @@ class ViewController: UITableViewController, UITextViewDelegate {
 
     func loadMatches() {
         self.refreshGamesButton.enabled = false
-        findMatches(loadedMatches, couldNotFindMatches)
+        findMatches(loadedMatches, noConnectionHandler: couldNotFindMatches)
     }
     
     func playerLoggedIn(localPlayer : Player) {
-        println("Local Player logged in: \(localPlayer)")
+        print("Local Player logged in: \(localPlayer)")
         self.addGameButton.enabled = true
         loadMatches()
     }
@@ -145,20 +145,20 @@ class ViewController: UITableViewController, UITextViewDelegate {
     func authenticationHandler(viewController : UIViewController!, error: NSError!) -> Void {
         if viewController != nil {
             //showAuthenticationDialogWhenReasonable: is an example method name. Create your own method that displays an authentication view when appropriate for your app.
-            println("We're going to try to auth here.")
+            print("We're going to try to auth here.")
             self.presentViewController(viewController, animated:true, completion:nil)
             return
         } else if let player = localPlayer {
             //authenticatedPlayer: is an example method name. Create your own method that is called after the loacal player is authenticated.
             if player.authenticated {
-                println("Already authenticated!")
+                print("Already authenticated!")
                 playerLoggedIn(localPlayer!)
                 return
             }
         } else {
             //disableGameCenter() - the game starts off disabled already. Eventually we'll want to allow read-only mode, which means this will happen here
         }
-        println("Player not logged in! \(error)")
+        print("Player not logged in! \(error)")
     }
 }
 

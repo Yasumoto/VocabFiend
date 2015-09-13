@@ -30,7 +30,7 @@ class FullStoryTableViewController: UITableViewController {
             submissions?.append(result as! Submission)
         }
         if let currentMatch = match {
-            println("Loading matchData for \(currentMatch.matchID)")
+            print("Loading matchData for \(currentMatch.matchID)")
             currentMatch.loadMatchDataWithCompletionHandler(updateMatchData)
         }
     }
@@ -48,12 +48,12 @@ class FullStoryTableViewController: UITableViewController {
             if currentMatch.currentParticipant.player != GKLocalPlayer.localPlayer() {
                 AddNewStoryEntryBarButtonItem.enabled = false
             } else {
-                println("It is the user's turn now.")
+                print("It is the user's turn now.")
                 AddNewStoryEntryBarButtonItem.enabled = true
             }
         }
 
-        println("We found \(submissions!.count) submissions")
+        print("We found \(submissions!.count) submissions")
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,8 +76,8 @@ class FullStoryTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let submission = submissions![indexPath.row]
-        println("Using submission: \(submission.firstWord?.word), \(submission.secondWord?.word), \(submission.thirdWord?.word)")
-        let cell = tableView.dequeueReusableCellWithIdentifier("submission", forIndexPath: indexPath)as! UITableViewCell
+        print("Using submission: \(submission.firstWord?.word), \(submission.secondWord?.word), \(submission.thirdWord?.word)")
+        let cell = tableView.dequeueReusableCellWithIdentifier("submission", forIndexPath: indexPath)
         cell.textLabel?.text = submission.story
         return cell
     }
